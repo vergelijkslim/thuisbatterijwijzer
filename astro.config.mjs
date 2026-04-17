@@ -3,7 +3,8 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://thuisbatterijwijzer.nl',
+  site: 'https://vergelijkslim.github.io',
+  base: '/thuisbatterijwijzer',
   integrations: [sitemap()],
   build: {
     format: 'directory',

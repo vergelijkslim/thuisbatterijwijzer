@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://thuisbatterijwijzer.nl/sitemap-index.xml
+Sitemap: https://vergelijkslim.github.io/thuisbatterijwijzer/sitemap-index.xml
