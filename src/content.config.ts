@@ -8,7 +8,7 @@ const articleSchema = z.object({
   type: z.enum(['vergelijking', 'review', 'gids']),
   publishDate: z.coerce.date(),
   updatedDate: z.coerce.date().optional(),
-  author: z.string().default('Redactie ThuisbatterijWijzer'),
+  author: z.string().default('Redactie Vergelijk uw Thuisbatterij'),
   draft: z.boolean().default(false),
   featured: z.boolean().default(false),
   affiliateLinks: z.array(z.string()).default([]),
