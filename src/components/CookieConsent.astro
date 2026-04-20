@@ -115,12 +115,14 @@
     document.getElementById('cookie-accept').addEventListener('click', function() {
       localStorage.setItem('cookie-consent', 'accepted');
       banner.classList.remove('visible');
+      // Load GA after consent
+      var gaMeta = document.querySelector('meta[name="ga-measurement-id"]');
+      if (gaMeta && window.__loadGA) window.__loadGA(gaMeta.content);
     });
 
     document.getElementById('cookie-decline').addEventListener('click', function() {
       localStorage.setItem('cookie-consent', 'declined');
       banner.classList.remove('visible');
-      window['ga-disable-G-XXXXXXXXXX'] = true;
     });
   })();
 </script>

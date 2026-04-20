@@ -19,7 +19,7 @@ const {
   title,
   description,
   canonical = Astro.url.href,
-  ogImage = '/images/og-default.jpg',
+  ogImage = '/images/og-default.svg',
   ogType = 'website',
   noindex = false,
   structuredData,
@@ -56,14 +56,29 @@ const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" /></noscript>
 
-  <!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX" is:inline></script>
+  <!-- Google Analytics 4 — loaded only after cookie consent -->
   <script is:inline>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
+    window.__loadGA = function(measurementId) {
+      if (window.__gaLoaded) return;
+      window.__gaLoaded = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + measurementId;
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', measurementId);
+    };
+    // Auto-load if previously consented
+    if (localStorage.getItem('cookie-consent') === 'accepted') {
+      var gaMeasurementId = document.querySelector('meta[name="ga-measurement-id"]');
+      if (gaMeasurementId) window.__loadGA(gaMeasurementId.content);
+    }
   </script>
 
   {structuredData && (
