@@ -1,0 +1,197 @@
+{
+  "_meta": {
+    "beschrijving": "Populaire omvormers in Nederland en hun compatibele thuisbatterijen",
+    "bijgewerkt": "2026-04-22",
+    "bronnen": [
+      "Fabrikant compatibiliteitslijsten 2025",
+      "Installateursdata Nederland",
+      "Zonnepanelen-weetjes.nl vergelijking",
+      "Solar Magazine NL"
+    ]
+  },
+  "omvormers": [
+    {
+      "id": "sma-sunny-tripower",
+      "merk": "SMA",
+      "model": "Sunny Tripower X 10",
+      "type": "hybride",
+      "vermogen_kw": 10,
+      "vermogen_opties_kw": [6, 8, 10, 12, 15],
+      "efficientie_pct": 97.0,
+      "prijs_eur": 2200,
+      "garantie_jaren": 5,
+      "compatibele_batterijen": [
+        "BYD Battery-Box Premium HVS",
+        "BYD Battery-Box Premium HVM",
+        "Pylontech US3000",
+        "Pylontech Force H2"
+      ],
+      "mppt_ingangen": 2,
+      "max_dc_spanning_v": 1000,
+      "app": "SMA Energy",
+      "communicatie": ["SMA Speedwire", "Modbus TCP", "SunSpec"],
+      "ip_rating": "IP65",
+      "opmerkingen": "Meest geïnstalleerde omvormer in NL. Breed ecosysteem. Hoge betrouwbaarheid."
+    },
+    {
+      "id": "solaredge-se10k",
+      "merk": "SolarEdge",
+      "model": "SE10K-RWS (StorEdge)",
+      "type": "hybride",
+      "vermogen_kw": 10,
+      "vermogen_opties_kw": [3.5, 5, 7, 8, 10],
+      "efficientie_pct": 98.3,
+      "prijs_eur": 2400,
+      "garantie_jaren": 12,
+      "compatibele_batterijen": [
+        "SolarEdge Home Battery 10 kWh",
+        "LG Chem RESU (via StorEdge)",
+        "BYD Battery-Box"
+      ],
+      "mppt_ingangen": 1,
+      "max_dc_spanning_v": 1500,
+      "app": "mySolarEdge",
+      "communicatie": ["Wi-Fi", "Ethernet", "ZigBee"],
+      "ip_rating": "IP65",
+      "opmerkingen": "Hoge efficiëntie. Lange garantie (12 jaar standaard). DC-optimizers systeem voor maximale opbrengst per paneel."
+    },
+    {
+      "id": "fronius-symo-gen24",
+      "merk": "Fronius",
+      "model": "Symo GEN24 10.0 Plus",
+      "type": "hybride",
+      "vermogen_kw": 10,
+      "vermogen_opties_kw": [3, 4, 5, 6, 8, 10],
+      "efficientie_pct": 98.0,
+      "prijs_eur": 2800,
+      "garantie_jaren": 5,
+      "compatibele_batterijen": [
+        "BYD Battery-Box Premium HVS",
+        "BYD Battery-Box Premium HVM",
+        "Fronius Solar Battery"
+      ],
+      "mppt_ingangen": 2,
+      "max_dc_spanning_v": 1000,
+      "app": "Fronius Solar.web",
+      "communicatie": ["Wi-Fi", "Ethernet", "Modbus TCP"],
+      "ip_rating": "IP66",
+      "opmerkingen": "Robuuste Oostenrijkse kwaliteit. IP66 buiteninstallatie mogelijk. Uitstekende datalogging."
+    },
+    {
+      "id": "huawei-sun2000",
+      "merk": "Huawei",
+      "model": "SUN2000-10KTL-M1",
+      "type": "hybride",
+      "vermogen_kw": 10,
+      "vermogen_opties_kw": [3, 4, 5, 6, 8, 10, 12],
+      "efficientie_pct": 98.6,
+      "prijs_eur": 2000,
+      "garantie_jaren": 10,
+      "compatibele_batterijen": [
+        "Huawei LUNA2000"
+      ],
+      "mppt_ingangen": 2,
+      "max_dc_spanning_v": 1100,
+      "app": "FusionSolar",
+      "communicatie": ["Wi-Fi", "PLC", "RS485"],
+      "ip_rating": "IP65",
+      "opmerkingen": "Hoogste efficiëntie in zijn klasse. Gesloten ecosysteem: werkt alleen met Huawei batterij. Scherpe prijs."
+    },
+    {
+      "id": "kostal-plenticore-plus",
+      "merk": "KOSTAL",
+      "model": "PLENTICORE plus 10",
+      "type": "hybride",
+      "vermogen_kw": 10,
+      "vermogen_opties_kw": [4.2, 5.5, 7, 8.5, 10],
+      "efficientie_pct": 98.2,
+      "prijs_eur": 2600,
+      "garantie_jaren": 5,
+      "compatibele_batterijen": [
+        "BYD Battery-Box Premium HVS",
+        "BYD Battery-Box Premium HVM",
+        "Pylontech US3000C",
+        "LG Chem RESU"
+      ],
+      "mppt_ingangen": 3,
+      "max_dc_spanning_v": 1000,
+      "app": "KOSTAL Solar Portal",
+      "communicatie": ["Wi-Fi", "Ethernet", "Modbus TCP"],
+      "ip_rating": "IP65",
+      "opmerkingen": "3 MPPT ingangen voor complexe daksituaties. Hoge efficiëntie. Duits kwaliteitsproduct."
+    },
+    {
+      "id": "enphase-iq8",
+      "merk": "Enphase",
+      "model": "IQ8+ Micro-omvormer",
+      "type": "micro-omvormer",
+      "vermogen_kw": 0.29,
+      "vermogen_opties_kw": [0.24, 0.29, 0.35],
+      "efficientie_pct": 97.0,
+      "prijs_eur": 200,
+      "garantie_jaren": 25,
+      "compatibele_batterijen": [
+        "Enphase IQ Battery 3T",
+        "Enphase IQ Battery 10T",
+        "Enphase IQ Battery 5P"
+      ],
+      "mppt_ingangen": 1,
+      "max_dc_spanning_v": 60,
+      "app": "Enphase Enlighten",
+      "communicatie": ["Wi-Fi", "Power Line Communication"],
+      "ip_rating": "IP67",
+      "opmerkingen": "Per paneel een micro-omvormer — maximale opbrengst, geen enkelpunt fout. 25 jaar garantie. Ideaal voor complexe daken."
+    },
+    {
+      "id": "growatt-min",
+      "merk": "Growatt",
+      "model": "MIN 10000TL-XH",
+      "type": "hybride",
+      "vermogen_kw": 10,
+      "vermogen_opties_kw": [3, 4, 5, 6, 8, 10],
+      "efficientie_pct": 98.4,
+      "prijs_eur": 1600,
+      "garantie_jaren": 5,
+      "compatibele_batterijen": [
+        "Growatt GBLI6532",
+        "Pylontech US3000",
+        "BYD Battery-Box"
+      ],
+      "mppt_ingangen": 2,
+      "max_dc_spanning_v": 1000,
+      "app": "Shine",
+      "communicatie": ["Wi-Fi", "RS485", "Modbus"],
+      "ip_rating": "IP65",
+      "opmerkingen": "Budget-vriendelijke optie. Chinese fabrikant met groeiend marktaandeel in NL. Goede prijs-kwaliteit verhouding."
+    }
+  ],
+  "compatibiliteitsmatrix": {
+    "beschrijving": "Welke batterij werkt met welke omvormer",
+    "tabel": [
+      {
+        "batterij": "BYD Battery-Box Premium HVS",
+        "compatibele_omvormers": ["SMA", "Fronius", "KOSTAL", "Growatt", "KACO", "Goodwe"]
+      },
+      {
+        "batterij": "Huawei LUNA2000",
+        "compatibele_omvormers": ["Huawei SUN2000 only"]
+      },
+      {
+        "batterij": "SolarEdge Home Battery",
+        "compatibele_omvormers": ["SolarEdge StorEdge only"]
+      },
+      {
+        "batterij": "Tesla Powerwall 3",
+        "compatibele_omvormers": ["Alle merken (AC-gekoppeld)", "Tesla Solar Inverter (DC-gekoppeld)"]
+      },
+      {
+        "batterij": "Enphase IQ Battery",
+        "compatibele_omvormers": ["Enphase IQ micro-omvormers only"]
+      },
+      {
+        "batterij": "sonnen eco 8",
+        "compatibele_omvormers": ["SMA", "SolarEdge", "Fronius", "Kostal", "Growatt (AC-gekoppeld)"]
+      }
+    ]
+  }
+}

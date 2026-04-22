@@ -1,0 +1,97 @@
+{
+  "_meta": {
+    "beschrijving": "Energieparameters voor thuisbatterij ROI calculator — Nederland",
+    "bijgewerkt": "2026-04-22",
+    "geldig_jaar": "2025-2026",
+    "bronnen": [
+      "CBS Statline energieprijzen Q1 2026",
+      "Energievergelijker.nl gemiddelde tarieven",
+      "ACM tariefregulering netbeheer 2025",
+      "RVO.nl salderingsinfo",
+      "TNO zonnepaneel opbrengstdata Nederland",
+      "Milieu Centraal zonnepanelen calculator data"
+    ]
+  },
+  "stroomprijs": {
+    "leveringstarief_eur_per_kwh": 0.2850,
+    "leveringstarief_range": {"min": 0.22, "max": 0.38},
+    "energiebelasting_eur_per_kwh": 0.1220,
+    "ode_opslag_eur_per_kwh": 0.0023,
+    "btw_pct": 21,
+    "totaal_variabel_eur_per_kwh_incl_btw": 0.4950,
+    "vaste_kosten_eur_per_maand": 28.50,
+    "netbeheerkosten_eur_per_maand": 45.00,
+    "opmerkingen": "Gemiddelde tarieven Q1 2026. Exacte prijs afhankelijk van energieleverancier en contract."
+  },
+  "teruglevertarief": {
+    "huidig_eur_per_kwh": 0.09,
+    "toelichting": "Teruglevertarief daalt snel na salderingsafbouw. Sommige leveranciers bieden al tijdelijk nul-tarief.",
+    "variabel": true,
+    "range_eur_per_kwh": {"min": 0.00, "max": 0.17},
+    "opmerkingen": "Per 2025 geldt al verminderde saldering. Controleer actueel tarief bij uw energieleverancier."
+  },
+  "salderingsafbouw": {
+    "beschrijving": "Het salderings­systeem wordt stapsgewijs afgebouwd. Dit betekent dat u minder kWh-voor-kWh mag verrekenen met uw verbruik.",
+    "schema": [
+      {"jaar": 2025, "salderingspercentage": 64, "toelichting": "64% van teruggeleverde stroom mag worden gesaldeerd"},
+      {"jaar": 2026, "salderingspercentage": 49, "toelichting": "49% van teruggeleverde stroom mag worden gesaldeerd"},
+      {"jaar": 2027, "salderingspercentage": 34, "toelichting": "34% van teruggeleverde stroom mag worden gesaldeerd"},
+      {"jaar": 2028, "salderingspercentage": 19, "toelichting": "19% van teruggeleverde stroom mag worden gesaldeerd"},
+      {"jaar": 2029, "salderingspercentage": 0, "toelichting": "Saldering volledig afgeschaft. Alleen teruglevertarief geldt."}
+    ],
+    "impact_thuisbatterij": "Door de salderingsafbouw wordt een thuisbatterij financieel aantrekkelijker. Zelfverbruik is meer waard dan terugleveren."
+  },
+  "zonnepanelen": {
+    "gemiddelde_productie_kwh_per_kwp_per_jaar": 875,
+    "productie_range_kwh_per_kwp": {"min": 750, "max": 1050},
+    "regionale_variatie": {
+      "noord_nl": 820,
+      "midden_nl": 875,
+      "zuid_nl": 950,
+      "zeeland": 1000
+    },
+    "typisch_systeem_kwp": 5.0,
+    "typische_jaarproductie_kwh": 4375,
+    "paneel_vermogen_wp_gemiddeld": 400,
+    "panelen_per_kwp": 2.5,
+    "opmerkingen": "Productie is sterk afhankelijk van oriëntatie (optimaal: zuidgericht, 35° hoek), schaduw en paneel kwaliteit."
+  },
+  "zelfconsumptie": {
+    "zonder_batterij": {
+      "percentage": 30,
+      "toelichting": "Gemiddeld Nederlands huishouden verbruikt 30% van zelf geproduceerde zonne-energie direct",
+      "range": {"min": 20, "max": 45}
+    },
+    "met_batterij_5kwh": {
+      "percentage": 60,
+      "toelichting": "Met 5 kWh batterij stijgt zelfverbruik naar circa 60%",
+      "range": {"min": 50, "max": 70}
+    },
+    "met_batterij_10kwh": {
+      "percentage": 75,
+      "toelichting": "Met 10 kWh batterij stijgt zelfverbruik naar circa 75%",
+      "range": {"min": 65, "max": 85}
+    },
+    "met_batterij_15kwh": {
+      "percentage": 85,
+      "toelichting": "Met 15 kWh batterij stijgt zelfverbruik naar circa 85%",
+      "range": {"min": 75, "max": 90}
+    },
+    "opmerkingen": "Percentages voor typisch gezin (3-4 personen, 3500 kWh/jaar verbruik, 5 kWp zonnepanelen)"
+  },
+  "gemiddeld_verbruik_huishouden": {
+    "eenpersoons_kwh_per_jaar": 1800,
+    "tweepersoons_kwh_per_jaar": 2800,
+    "driepersooons_kwh_per_jaar": 3600,
+    "vierpersoons_kwh_per_jaar": 4300,
+    "met_elektrische_auto_extra_kwh": 2000,
+    "met_warmtepomp_extra_kwh": 3000,
+    "opmerkingen": "CBS gemiddelden 2024. Warmtepomp en EV verhogen verbruik significant."
+  },
+  "roi_aannames": {
+    "inflatie_energieprijs_pct_per_jaar": 3.5,
+    "levensduur_batterij_jaren": 15,
+    "degradatie_pct_per_jaar": 1.5,
+    "opmerkingen": "Conservatieve aannames voor ROI berekening. Werkelijke ROI afhankelijk van energieprijsontwikkeling."
+  }
+}
