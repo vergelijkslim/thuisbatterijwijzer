@@ -1,0 +1,437 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import energieParams from '../../../data/energie-parameters.json';
+
+const { salderingsafbouw, stroomprijs, terugleverprijs, roi_aannames } = energieParams;
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Thuisbatterij ROI Calculator – Bereken Terugverdientijd',
+  description: 'Bereken precies wanneer jouw thuisbatterij terugverdiend is. Met Chart.js grafieken en salderingsafbouw 2027 scenario.',
+  url: 'https://thuisbatterijwijzer.nl/tools/roi-calculator/',
+};
+---
+
+<BaseLayout
+  title="Thuisbatterij ROI Calculator – Terugverdientijd Berekenen"
+  description="Bereken de terugverdientijd van een thuisbatterij op basis van jouw stroomverbruik, zonneopbrengst en energieprijzen. Gratis tool inclusief salderingsafbouw scenario."
+  structuredData={structuredData}
+>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" is:inline></script>
+
+  <main class="tool-page">
+    <div class="container">
+      <div class="tool-header">
+        <a href="/tools/" class="back-link">← Alle tools</a>
+        <h1>ROI Calculator</h1>
+        <p class="tool-intro">Bereken exact wanneer jouw thuisbatterij terugverdiend is, wat je maandelijks bespaart en hoe de salderingsafbouw jouw terugverdientijd beïnvloedt.</p>
+
+        <div class="scenario-toggle">
+          <span class="toggle-label">Scenario:</span>
+          <div class="toggle-group">
+            <button class="toggle-btn active" id="btnNormaal" type="button">Standaard tarieven</button>
+            <button class="toggle-btn" id="btnSaldering" type="button">
+              Met salderingsafbouw
+              <span class="new-badge">Actueel</span>
+            </button>
+          </div>
+        </div>
+        <p class="scenario-desc" id="scenarioDesc">Vaste tarieven over de gehele looptijd.</p>
+      </div>
+
+      <div class="calc-layout">
+        <div class="calc-inputs card">
+          <h2>Jouw situatie</h2>
+
+          <div class="field-group">
+            <label for="batterijCapaciteit">Batterijcapaciteit (kWh)</label>
+            <input type="range" id="batterijCapaciteit" min="3" max="15" value="10" step="0.5" />
+            <output id="capOutput">10 kWh</output>
+          </div>
+
+          <div class="field-group">
+            <label for="batterijPrijs">Prijs incl. installatie (€)</label>
+            <input type="number" id="batterijPrijs" value="7500" min="2000" max="16000" step="100" />
+            <small>Incl. installatie: gemiddeld €5.500–€12.000</small>
+          </div>
+
+          <div class="field-group">
+            <label for="zonOpbrengst">Jaarlijkse zonne-opbrengst (kWh)</label>
+            <input type="number" id="zonOpbrengst" value="4375" min="500" max="12000" step="100" />
+            <small>5 kWp × 875 kWh/kWp ≈ 4.375 kWh/jr (NL gemiddeld)</small>
+          </div>
+
+          <div class="field-group">
+            <label for="eigenVerbruik">Eigen verbruik overdag (% van zonne-energie)</label>
+            <input type="range" id="eigenVerbruik" min="10" max="55" value="30" step="5" />
+            <output id="eigenOutput">30%</output>
+            <small>Zonder batterij: 20–35% · Met batterij: 60–85%</small>
+          </div>
+
+          <div class="field-group">
+            <label for="stroomprijs">Stroomprijs incl. belasting (€/kWh)</label>
+            <input type="number" id="stroomprijs" value="0.32" min="0.15" max="0.60" step="0.01" />
+            <small>Gemiddeld NL 2026: €0.28–€0.38/kWh</small>
+          </div>
+
+          <div class="field-group">
+            <label for="terugleverprijs">Teruglevertarief (€/kWh)</label>
+            <input type="number" id="terugleverprijs" value="0.09" min="0.00" max="0.30" step="0.01" />
+            <small>Na salderingsafbouw richting €0.04–0.08/kWh</small>
+          </div>
+
+          <div class="field-group">
+            <label for="prijsstijging">Verwachte energieprijsstijging per jaar (%)</label>
+            <input type="range" id="prijsstijging" min="0" max="10" value="3" step="0.5" />
+            <output id="prijsOutput">3.0%</output>
+            <small>Historisch gemiddeld: 3–4% per jaar</small>
+          </div>
+        </div>
+
+        <div class="calc-result card">
+          <h2>Resultaat</h2>
+          <div id="roiSummary"></div>
+          <div id="scenarioAlert"></div>
+
+          <div class="chart-block">
+            <h3 class="chart-title">Terugverdientijd grafiek</h3>
+            <canvas id="lineChart" height="200"></canvas>
+          </div>
+
+          <div class="donut-block">
+            <h3 class="chart-title">Eigenverbruik zonne-energie</h3>
+            <div class="donut-row">
+              <div class="donut-item">
+                <canvas id="donutZonder" width="110" height="110"></canvas>
+                <span class="donut-label">Zonder batterij</span>
+              </div>
+              <div class="donut-arrow">→</div>
+              <div class="donut-item">
+                <canvas id="donutMet" width="110" height="110"></canvas>
+                <span class="donut-label">Met batterij</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="roiDetails"></div>
+
+          <div class="cta-block">
+            <a href="/tools/configurator/" class="btn btn-secondary btn-full">Welke batterij past bij mijn panelen? →</a>
+            <a href="/offerte/" class="btn btn-cta btn-full">Gratis offerte aanvragen →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tools-nav">
+        <h2>Meer tools</h2>
+        <div class="tools-grid">
+          <a href="/tools/salderingswijzer/" class="tool-link-card">
+            <span class="tc-icon">📉</span>
+            <strong>Salderingswijzer</strong>
+            <span>Impact afbouw 2027–2029</span>
+          </a>
+          <a href="/tools/configurator/" class="tool-link-card">
+            <span class="tc-icon">⚙️</span>
+            <strong>Batterij Configurator</strong>
+            <span>Welke batterij past bij mijn omvormer?</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<script>
+  // Salderingsafbouw schema (from JSON data)
+  const SALDERING_SCHEMA = [
+    { jaar: 2025, pct: 0.64 },
+    { jaar: 2026, pct: 0.49 },
+    { jaar: 2027, pct: 0.34 },
+    { jaar: 2028, pct: 0.19 },
+    { jaar: 2029, pct: 0.00 },
+  ];
+
+  let activeScenario: 'normaal' | 'saldering' = 'normaal';
+  let lineChartInst: any = null;
+  let donutZonderInst: any = null;
+  let donutMetInst: any = null;
+
+  document.getElementById('btnNormaal')!.addEventListener('click', () => setScenario('normaal'));
+  document.getElementById('btnSaldering')!.addEventListener('click', () => setScenario('saldering'));
+
+  function setScenario(s: 'normaal' | 'saldering') {
+    activeScenario = s;
+    document.getElementById('btnNormaal')!.classList.toggle('active', s === 'normaal');
+    document.getElementById('btnSaldering')!.classList.toggle('active', s === 'saldering');
+    document.getElementById('scenarioDesc')!.textContent = s === 'normaal'
+      ? 'Vaste tarieven over de gehele looptijd.'
+      : 'Teruglevertarief daalt stapsgewijs door salderingsafbouw (naar 0% in 2029). Batterij wordt sneller terugverdiend!';
+    calculate();
+  }
+
+  function getEffectiveTeruglever(jaar: number, baseTeruglever: number, stroomprijs: number): number {
+    if (activeScenario === 'normaal') return baseTeruglever;
+    const currentYear = 2025;
+    const targetYear = currentYear + (jaar - 1);
+    const entry = SALDERING_SCHEMA.find(s => s.jaar === targetYear) ?? SALDERING_SCHEMA[SALDERING_SCHEMA.length - 1];
+    return entry.pct * stroomprijs + (1 - entry.pct) * 0.06;
+  }
+
+  function calculate() {
+    const cap = parseFloat((document.getElementById('batterijCapaciteit') as HTMLInputElement).value);
+    const prijs = parseFloat((document.getElementById('batterijPrijs') as HTMLInputElement).value);
+    const zon = parseFloat((document.getElementById('zonOpbrengst') as HTMLInputElement).value);
+    const eigenPct = parseFloat((document.getElementById('eigenVerbruik') as HTMLInputElement).value) / 100;
+    const stroomprijs = parseFloat((document.getElementById('stroomprijs') as HTMLInputElement).value);
+    const teruglever = parseFloat((document.getElementById('terugleverprijs') as HTMLInputElement).value);
+    const stijging = parseFloat((document.getElementById('prijsstijging') as HTMLInputElement).value) / 100;
+
+    (document.getElementById('capOutput') as HTMLElement).textContent = `${cap} kWh`;
+    (document.getElementById('eigenOutput') as HTMLElement).textContent = `${Math.round(eigenPct * 100)}%`;
+    (document.getElementById('prijsOutput') as HTMLElement).textContent = `${(stijging * 100).toFixed(1)}%`;
+
+    // Eigenverbruik met batterij (based on capacity)
+    let eigenMetBat = 0.60;
+    if (cap <= 5) eigenMetBat = 0.60;
+    else if (cap <= 10) eigenMetBat = 0.75;
+    else eigenMetBat = 0.85;
+    eigenMetBat = Math.max(eigenMetBat, eigenPct + 0.30);
+    eigenMetBat = Math.min(eigenMetBat, 0.88);
+
+    const extraEigenKwh = (eigenMetBat - eigenPct) * zon;
+    const beschikbaarDag = Math.min(cap * 0.9, (zon / 365) * (1 - eigenPct));
+    const beschikbaarJaar = beschikbaarDag * 300;
+
+    let cumulatief = 0;
+    let terugverdienJaar = 0;
+    const jaarData: { jaar: number; besparing: number; cumulatief: number }[] = [];
+
+    for (let j = 1; j <= 20; j++) {
+      const pf = Math.pow(1 + stijging, j - 1);
+      const sp = stroomprijs * pf;
+      const tl = getEffectiveTeruglever(j, teruglever * pf, sp);
+      const besparing = Math.max(extraEigenKwh, beschikbaarJaar) * (sp - tl);
+      cumulatief += besparing;
+      jaarData.push({ jaar: j, besparing: Math.round(besparing), cumulatief: Math.round(cumulatief) });
+      if (cumulatief >= prijs && terugverdienJaar === 0) terugverdienJaar = j;
+    }
+
+    const roi15 = ((jaarData[14].cumulatief - prijs) / prijs * 100).toFixed(0);
+
+    document.getElementById('roiSummary')!.innerHTML = `
+      <div class="roi-stats">
+        <div class="roi-stat ${terugverdienJaar > 0 && terugverdienJaar <= 15 ? 'stat-good' : 'stat-warn'}">
+          <div class="stat-label">Terugverdientijd</div>
+          <div class="stat-value">${terugverdienJaar > 0 ? `${terugverdienJaar} jaar` : '> 20 jaar'}</div>
+        </div>
+        <div class="roi-stat">
+          <div class="stat-label">Besparing jaar 1</div>
+          <div class="stat-value">€${jaarData[0].besparing.toLocaleString('nl-NL')}</div>
+        </div>
+        <div class="roi-stat">
+          <div class="stat-label">Besparing na 15 jaar</div>
+          <div class="stat-value">€${jaarData[14].cumulatief.toLocaleString('nl-NL')}</div>
+        </div>
+        <div class="roi-stat ${parseInt(roi15) > 0 ? 'stat-good' : 'stat-warn'}">
+          <div class="stat-label">ROI na 15 jaar</div>
+          <div class="stat-value">${parseInt(roi15) > 0 ? '+' : ''}${roi15}%</div>
+        </div>
+      </div>
+    `;
+
+    document.getElementById('scenarioAlert')!.innerHTML = activeScenario === 'saldering' ? `
+      <div class="scenario-info">
+        ⚡ <strong>Salderingsafbouw:</strong> Door de afbouw wordt terugleveren minder waard — de batterij wordt daardoor <em>sneller terugverdiend</em>.
+      </div>` : '';
+
+    // Line chart
+    const labels = jaarData.map(d => `Jaar ${d.jaar}`);
+    const cumData = jaarData.map(d => d.cumulatief);
+    const investLijn = jaarData.map(() => prijs);
+
+    if (lineChartInst) {
+      lineChartInst.data.labels = labels;
+      lineChartInst.data.datasets[0].data = cumData;
+      lineChartInst.data.datasets[1].data = investLijn;
+      lineChartInst.data.datasets[1].label = `Investering €${prijs.toLocaleString('nl-NL')}`;
+      lineChartInst.update();
+    } else {
+      const ctx = (document.getElementById('lineChart') as HTMLCanvasElement).getContext('2d')!;
+      lineChartInst = new (window as any).Chart(ctx, {
+        type: 'line',
+        data: {
+          labels,
+          datasets: [
+            {
+              label: 'Cumulatieve besparing',
+              data: cumData,
+              borderColor: '#d97706',
+              backgroundColor: 'rgba(217,119,6,0.08)',
+              borderWidth: 2.5,
+              fill: true,
+              tension: 0.4,
+              pointRadius: 3,
+              pointBackgroundColor: '#d97706',
+            },
+            {
+              label: `Investering €${prijs.toLocaleString('nl-NL')}`,
+              data: investLijn,
+              borderColor: '#64748b',
+              borderDash: [6, 3],
+              borderWidth: 1.5,
+              fill: false,
+              pointRadius: 0,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { position: 'bottom', labels: { font: { size: 12 }, boxWidth: 16 } },
+            tooltip: { callbacks: { label: (c: any) => `€${Math.round(c.raw).toLocaleString('nl-NL')}` } },
+          },
+          scales: {
+            y: { ticks: { callback: (v: any) => `€${(v / 1000).toFixed(0)}k` }, grid: { color: '#f1f5f9' } },
+            x: { ticks: { maxTicksLimit: 10, font: { size: 11 } }, grid: { display: false } },
+          },
+        },
+      });
+    }
+
+    // Donut charts
+    const eigenPctRound = Math.round(eigenPct * 100);
+    const metPctRound = Math.round(eigenMetBat * 100);
+
+    function makeOrUpdateDonut(id: string, pct: number, inst: any) {
+      const cfg = {
+        type: 'doughnut' as const,
+        data: { datasets: [{ data: [pct, 100 - pct], backgroundColor: ['#d97706', '#e2e8f0'], borderWidth: 0 }] },
+        options: { cutout: '65%', plugins: { legend: { display: false }, tooltip: { enabled: false } }, animation: { duration: 400 } },
+        plugins: [{
+          id: 'centerText',
+          beforeDraw(chart: any) {
+            const { ctx, chartArea } = chart;
+            const cx = (chartArea.left + chartArea.right) / 2;
+            const cy = (chartArea.top + chartArea.bottom) / 2;
+            ctx.save();
+            ctx.font = 'bold 13px Inter, sans-serif';
+            ctx.fillStyle = '#92400e';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(`${pct}%`, cx, cy);
+            ctx.restore();
+          },
+        }],
+      };
+      if (inst) {
+        inst.data.datasets[0].data = [pct, 100 - pct];
+        inst.update();
+        return inst;
+      }
+      const canvas = document.getElementById(id) as HTMLCanvasElement;
+      return new (window as any).Chart(canvas.getContext('2d')!, cfg);
+    }
+
+    donutZonderInst = makeOrUpdateDonut('donutZonder', eigenPctRound, donutZonderInst);
+    donutMetInst = makeOrUpdateDonut('donutMet', metPctRound, donutMetInst);
+
+    document.getElementById('roiDetails')!.innerHTML = `
+      <div class="details-block">
+        <h3>Berekeningsdetails</h3>
+        <div class="detail-rows">
+          <div class="detail-row"><span>Extra eigenverbruik door batterij</span><span>${Math.round(extraEigenKwh)} kWh/jr</span></div>
+          <div class="detail-row"><span>Beschikbare batterijenergie</span><span>${Math.round(beschikbaarJaar)} kWh/jr</span></div>
+          <div class="detail-row"><span>Eigenverbruik na batterij</span><span>${metPctRound}%</span></div>
+          <div class="detail-row"><span>Scenario</span><span>${activeScenario === 'saldering' ? 'Met salderingsafbouw' : 'Standaard'}</span></div>
+        </div>
+        <p class="disclaimer">⚠️ Indicatieve berekening. Resultaat afhankelijk van gebruikspatroon en energieprijsontwikkeling.</p>
+      </div>
+    `;
+  }
+
+  function initWhenReady() {
+    if (typeof (window as any).Chart !== 'undefined') {
+      ['batterijCapaciteit','batterijPrijs','zonOpbrengst','eigenVerbruik','stroomprijs','terugleverprijs','prijsstijging'].forEach(id => {
+        document.getElementById(id)!.addEventListener('input', calculate);
+        document.getElementById(id)!.addEventListener('change', calculate);
+      });
+      calculate();
+    } else {
+      setTimeout(initWhenReady, 100);
+    }
+  }
+  initWhenReady();
+</script>
+
+<style>
+  .tool-page { padding: 2rem 0 4rem; }
+  .back-link { font-size: 0.875rem; color: var(--color-text-muted); text-decoration: none; display: inline-block; margin-bottom: 1rem; }
+  .back-link:hover { color: var(--color-primary); }
+  .tool-header { margin-bottom: 2rem; }
+  .tool-header h1 { margin-bottom: 0.5rem; }
+  .tool-intro { color: var(--color-text-light); font-size: 1.0625rem; margin-bottom: 1.25rem; max-width: 680px; }
+
+  .scenario-toggle { display: flex; align-items: center; gap: 0.875rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+  .toggle-label { font-size: 0.875rem; font-weight: 600; color: var(--color-text-muted); }
+  .toggle-group { display: flex; gap: 0.375rem; }
+  .toggle-btn { padding: 0.5rem 1rem; border: 2px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-bg); font-size: 0.875rem; font-weight: 500; cursor: pointer; transition: all 0.15s; display: inline-flex; align-items: center; gap: 0.5rem; }
+  .toggle-btn.active { border-color: var(--color-primary); background: var(--color-primary-light); color: var(--color-primary-dark); font-weight: 700; }
+  .new-badge { font-size: 0.6875rem; padding: 0.125rem 0.5rem; background: #fef3c7; border: 1px solid #fcd34d; border-radius: 9999px; color: #92400e; font-weight: 700; }
+  .scenario-desc { font-size: 0.8125rem; color: var(--color-text-muted); margin: 0; }
+
+  .calc-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 1.75rem; margin-bottom: 3rem; }
+  @media (max-width: 900px) { .calc-layout { grid-template-columns: 1fr; } }
+
+  .card { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 1.75rem; }
+  .calc-inputs h2, .calc-result h2 { font-size: 1.25rem; margin-bottom: 1.25rem; }
+
+  .field-group { margin-bottom: 1.125rem; }
+  .field-group label { display: block; font-size: 0.875rem; font-weight: 600; margin-bottom: 0.375rem; }
+  .field-group input[type="number"] { width: 100%; padding: 0.625rem 0.875rem; border: 1px solid var(--color-border); border-radius: var(--radius-md); font-size: 1rem; background: var(--color-bg-alt); }
+  .field-group input[type="range"] { width: 100%; accent-color: var(--color-primary); }
+  .field-group output { display: block; text-align: right; font-size: 0.875rem; font-weight: 700; color: var(--color-primary); }
+  .field-group small { display: block; font-size: 0.8rem; color: var(--color-text-muted); margin-top: 0.25rem; }
+
+  .roi-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0.625rem; margin-bottom: 1rem; }
+  .roi-stat { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 0.75rem; text-align: center; }
+  .roi-stat.stat-good { border-color: var(--color-primary); background: var(--color-primary-light); }
+  .roi-stat.stat-warn { border-color: #f59e0b; background: #fffbeb; }
+  .stat-label { font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 0.25rem; }
+  .stat-value { font-size: 1.1875rem; font-weight: 800; color: var(--color-text); }
+
+  .scenario-info { background: #fffbeb; border: 1px solid #fcd34d; border-radius: var(--radius-md); padding: 0.75rem 1rem; font-size: 0.8125rem; color: #78350f; margin-bottom: 1rem; line-height: 1.5; }
+  .scenario-info em { font-style: italic; font-weight: 700; color: #15803d; }
+
+  .chart-block, .donut-block { margin-bottom: 1.25rem; }
+  .chart-title { font-size: 0.9375rem; font-weight: 600; color: var(--color-text-light); margin-bottom: 0.75rem; }
+  .donut-row { display: flex; align-items: center; justify-content: center; gap: 1.5rem; padding: 0.5rem 0; }
+  .donut-item { display: flex; flex-direction: column; align-items: center; gap: 0.375rem; }
+  .donut-label { font-size: 0.8125rem; color: var(--color-text-muted); font-weight: 500; }
+  .donut-arrow { font-size: 1.5rem; color: var(--color-primary); }
+
+  .details-block { background: var(--color-bg-alt); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1rem; }
+  .details-block h3 { font-size: 0.9375rem; margin-bottom: 0.625rem; }
+  .detail-rows { display: flex; flex-direction: column; gap: 0; margin-bottom: 0.75rem; }
+  .detail-row { display: flex; justify-content: space-between; padding: 0.4rem 0; font-size: 0.875rem; border-bottom: 1px solid var(--color-border-light); }
+  .detail-row:last-child { border-bottom: none; }
+  .detail-row span:last-child { font-weight: 600; }
+  .disclaimer { font-size: 0.8rem; color: var(--color-text-muted); margin: 0; }
+
+  .cta-block { display: flex; flex-direction: column; gap: 0.5rem; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.5rem; border-radius: var(--radius-md); font-weight: 600; font-size: 0.9375rem; cursor: pointer; text-decoration: none; border: none; transition: all 0.15s; }
+  .btn-cta { background: var(--color-primary); color: #fff; }
+  .btn-cta:hover { background: var(--color-primary-dark); text-decoration: none; color: #fff; }
+  .btn-secondary { background: var(--color-bg-alt); color: var(--color-text); border: 1px solid var(--color-border); }
+  .btn-secondary:hover { background: var(--color-primary-light); border-color: var(--color-primary); color: var(--color-primary-dark); text-decoration: none; }
+  .btn-full { width: 100%; text-align: center; }
+
+  .tools-nav { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-border); }
+  .tools-nav h2 { margin-bottom: 1rem; font-size: 1.25rem; }
+  .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+  .tool-link-card { display: flex; flex-direction: column; gap: 0.375rem; padding: 1.25rem; border: 1px solid var(--color-border); border-radius: var(--radius-lg); text-decoration: none; color: var(--color-text); background: var(--color-bg); transition: all 0.15s; }
+  .tool-link-card:hover { border-color: var(--color-primary); background: var(--color-primary-light); text-decoration: none; }
+  .tc-icon { font-size: 1.75rem; }
+  .tool-link-card strong { font-size: 0.9375rem; display: block; }
+  .tool-link-card span:last-child { font-size: 0.8125rem; color: var(--color-text-light); }
+</style>
