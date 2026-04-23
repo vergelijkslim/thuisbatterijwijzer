@@ -1,0 +1,420 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import batterijen from '../../../data/batterijen.json';
+import omvormers from '../../../data/omvormers.json';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Batterij Configurator – Welke batterij past bij mijn omvormer en zonnepanelen?',
+  description: 'Selecteer je zonnepanelen en omvormer. Zie direct welke thuisbatterijen compatibel zijn en welke capaciteit je nodig hebt.',
+  url: 'https://thuisbatterijwijzer.nl/tools/configurator/',
+};
+
+const batterijData = JSON.stringify(batterijen.batterijen.map(b => ({
+  id: b.id,
+  merk: b.merk,
+  model: b.model,
+  capaciteit: b.capaciteit_kwh,
+  prijs: b.prijs_eur,
+  compatibel: b.compatibele_omvormers,
+  affiliateUrl: b.affiliate_url,
+  badge: (b as any).badge || null,
+  opmerkingen: b.opmerkingen,
+  garantie: b.garantie_jaren,
+  efficientie: b.efficientie_pct,
+})));
+
+const omvormerData = JSON.stringify(omvormers.omvormers.map(o => ({
+  id: o.id,
+  merk: o.merk,
+  model: o.model,
+  type: o.type,
+  compatibel: o.compatibele_batterijen,
+})));
+---
+
+<BaseLayout
+  title="Batterij Configurator – Welke Batterij Past Bij Mijn Panelen?"
+  description="Vul je zonnepanelen (aantal + Wp) en omvormer in. Zie direct welke thuisbatterijen compatibel zijn met jouw systeem en welke capaciteit je nodig hebt."
+  structuredData={structuredData}
+>
+  <main class="tool-page">
+    <div class="container">
+      <div class="tool-header">
+        <a href="/tools/" class="back-link">← Alle tools</a>
+        <h1>Batterij Configurator</h1>
+        <p class="tool-intro">Vul je installatie in en zie welke thuisbatterijen compatibel zijn met jouw zonnepanelen en omvormer — inclusief aanbevolen capaciteit en affiliate links.</p>
+      </div>
+
+      <!-- Stap configuratie -->
+      <div class="config-layout">
+        <div class="config-step card">
+          <div class="step-head">
+            <span class="step-nr">1</span>
+            <h2>Zonnepanelen</h2>
+          </div>
+          <div class="field-group">
+            <label for="aantalPanelen">Aantal zonnepanelen</label>
+            <input type="range" id="aantalPanelen" min="4" max="32" value="14" step="1" />
+            <output id="panelenOutput">14 panelen</output>
+          </div>
+          <div class="field-group">
+            <label for="wpPaneel">Vermogen per paneel</label>
+            <select id="wpPaneel">
+              <option value="300">300 Wp (ouder)</option>
+              <option value="350">350 Wp (2020–2022)</option>
+              <option value="400" selected>400 Wp (2022–2024)</option>
+              <option value="430">430 Wp (2024+)</option>
+              <option value="460">460 Wp (premium)</option>
+            </select>
+          </div>
+          <div class="solar-summary" id="solarSummary">
+            <div class="sum-item">
+              <span class="sum-label">Vermogen</span>
+              <span class="sum-val" id="totaalKwp">–</span>
+            </div>
+            <div class="sum-item">
+              <span class="sum-label">Jaarproductie</span>
+              <span class="sum-val" id="jaarProductie">–</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="config-step card">
+          <div class="step-head">
+            <span class="step-nr">2</span>
+            <h2>Omvormer</h2>
+          </div>
+          <div class="field-group">
+            <label for="omvormerMerk">Merk omvormer</label>
+            <select id="omvormerMerk">
+              <option value="nieuw">Nog geen / nieuw systeem</option>
+              <option value="SMA">SMA</option>
+              <option value="SolarEdge">SolarEdge</option>
+              <option value="Fronius">Fronius</option>
+              <option value="Huawei">Huawei</option>
+              <option value="KOSTAL">KOSTAL</option>
+              <option value="Enphase">Enphase</option>
+              <option value="Victron">Victron Energy</option>
+              <option value="Goodwe">GoodWe</option>
+              <option value="Growatt">Growatt</option>
+              <option value="Anders">Anders / onbekend</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="omvormerType">Type omvormer</label>
+            <select id="omvormerType">
+              <option value="hybride">Hybride omvormer (batterij-ready DC)</option>
+              <option value="string">String omvormer (standaard AC)</option>
+              <option value="micro">Micro-omvormer (per paneel)</option>
+              <option value="onbekend">Weet ik niet</option>
+            </select>
+          </div>
+          <div class="omvormer-tip" id="omvormerTip"></div>
+        </div>
+
+        <div class="config-step card">
+          <div class="step-head">
+            <span class="step-nr">3</span>
+            <h2>Verbruik & wensen</h2>
+          </div>
+          <div class="field-group">
+            <label for="jaarVerbruik">Jaarlijks stroomverbruik</label>
+            <select id="jaarVerbruik">
+              <option value="2000">~2.000 kWh/jr (1–2 pers)</option>
+              <option value="3600" selected>~3.600 kWh/jr (3 pers)</option>
+              <option value="4300">~4.300 kWh/jr (4 pers)</option>
+              <option value="6000">~6.000 kWh/jr (+ warmtepomp)</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label>Wensen</label>
+            <div class="checkbox-list">
+              <label class="cb-item"><input type="checkbox" id="wensBackup" /> Backup bij stroomuitval</label>
+              <label class="cb-item"><input type="checkbox" id="wensUitbreiden" /> Uitbreidbaar in toekomst</label>
+              <label class="cb-item"><input type="checkbox" id="wensBudget" /> Laagste prijs prioriteit</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resultaten -->
+      <section class="results-section">
+        <div class="results-header">
+          <h2>Aanbevolen batterijen</h2>
+          <div id="capacityAdvice"></div>
+        </div>
+        <div class="battery-grid" id="batteryGrid"></div>
+      </section>
+
+      <!-- Uitleg -->
+      <section class="how-section">
+        <h2>Hoe werkt de configurator?</h2>
+        <div class="how-grid">
+          <div class="how-item">
+            <div class="how-nr">1</div>
+            <h3>Capaciteitadvies</h3>
+            <p>Op basis van je jaarproductie en verbruik berekenen we de batterijcapaciteit die 70–80% eigenverbruik realiseert.</p>
+          </div>
+          <div class="how-item">
+            <div class="how-nr">2</div>
+            <h3>Compatibiliteitscheck</h3>
+            <p>We filteren batterijen op compatibiliteit met jouw omvormer. Bij string-omvormers worden AC-gekoppelde opties aanbevolen.</p>
+          </div>
+          <div class="how-item">
+            <div class="how-nr">3</div>
+            <h3>Ranking</h3>
+            <p>We sorteren op compatibiliteitsscore, gevolgd door jouw extra wensen (backup, uitbreidbaarheid, prijs).</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="tools-nav">
+        <h2>Meer tools</h2>
+        <div class="tools-grid">
+          <a href="/tools/roi-calculator/" class="tool-link-card">
+            <span class="tc-icon">📈</span>
+            <strong>ROI Calculator</strong>
+            <span>Terugverdientijd berekenen</span>
+          </a>
+          <a href="/tools/salderingswijzer/" class="tool-link-card">
+            <span class="tc-icon">📉</span>
+            <strong>Salderingswijzer</strong>
+            <span>Impact afbouw 2025–2029</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<script define:vars={{ batterijData, omvormerData }}>
+  const BATTERIJEN = JSON.parse(batterijData);
+  const OMVORMERS = JSON.parse(omvormerData);
+
+  const TIPS = {
+    SMA: 'SMA omvormers werken goed met BYD Battery-Box. Combineer de SMA Sunny Tripower met de BYD HVS voor optimale integratie.',
+    SolarEdge: 'SolarEdge systemen combineren het best met de SolarEdge Home Battery. BYD HVS is ook compatibel.',
+    Fronius: 'Fronius Symo GEN24 is een hybride omvormer — ideaal voor directe koppeling met BYD Battery-Box Premium.',
+    Huawei: 'Huawei SUN2000 integreert naadloos met de Huawei LUNA2000. Specifiek aanbevolen als all-in-one ecosysteem.',
+    KOSTAL: 'KOSTAL PLENTICORE plus werkt uitstekend met BYD batterijen. Efficiënte Nederlandse installaties.',
+    Enphase: 'Enphase micro-omvormers vereisen de Enphase IQ Battery — andere batterijen zijn niet direct compatibel.',
+    Victron: 'Victron MultiPlus biedt maximale flexibiliteit. Combineer met Pylontech of andere LFP-batterijen.',
+    Goodwe: 'GoodWe omvormers werken goed met BYD en via AC-koppeling met andere merken.',
+    Growatt: 'Growatt omvormers zijn breed compatibel via AC-koppeling.',
+    Anders: 'Bij een onbekend merk kiezen we voor AC-gekoppelde batterijen — die werken met elke omvormer.',
+    nieuw: 'Voor een nieuw systeem adviseren we een all-in-one hybride omvormer + batterij voor de laagste totaalprijs en beste integratie.',
+  };
+
+  function scoreCompatibility(bat, merk, type) {
+    const compatStr = bat.compatibel.join(' ').toLowerCase();
+    const merkLower = merk.toLowerCase();
+
+    // Specific ecosystem matches
+    if (merk === 'Enphase' && bat.id === 'enphase-iq-battery') return 4;
+    if (merk === 'Huawei' && bat.id === 'huawei-luna2000') return 4;
+    if (merk === 'SolarEdge' && bat.id === 'solaredge-home-battery') return 4;
+    if (merk === 'KOSTAL' && bat.id === 'kostal-piko-ba') return 4;
+    if (merk === 'Fronius' && bat.id === 'fronius-symo-gen24') return 4;
+    if (merk === 'Victron' && bat.id === 'victron-multiplus') return 4;
+
+    // Generic text match
+    if (compatStr.includes(merkLower)) return 3;
+    if (compatStr.includes('sma') && merk === 'SMA') return 3;
+    if (compatStr.includes('ac') || compatStr.includes('alle')) return 2;
+
+    // New system — all work
+    if (merk === 'nieuw') return 2;
+
+    // AC-only string inverter
+    if (type === 'string') return 2;
+
+    return 1;
+  }
+
+  function getRecommendedCap(productie, verbruik) {
+    const surplus = productie * 0.7 - verbruik * 0.45;
+    const dagelijk = Math.max(1, surplus / 300);
+    if (dagelijk < 4) return { min: 3, max: 6, label: '3–6 kWh' };
+    if (dagelijk < 7) return { min: 5, max: 10, label: '5–10 kWh' };
+    return { min: 8, max: 15, label: '8–15 kWh' };
+  }
+
+  function renderCard(bat, score, recCap) {
+    const compatLabel = score >= 4 ? 'Perfecte match' : score === 3 ? 'Goed compatibel' : score === 2 ? 'Compatibel' : 'Beperkt';
+    const compatClass = score >= 4 ? 'c-perfect' : score === 3 ? 'c-good' : score === 2 ? 'c-ok' : 'c-limited';
+    const capOk = bat.capaciteit && bat.capaciteit >= recCap.min - 1 && bat.capaciteit <= recCap.max + 3;
+    const prijsStr = bat.prijs ? `€${bat.prijs.toLocaleString('nl-NL')}` : '–';
+
+    return `
+      <div class="bat-card ${score < 2 ? 'bat-dimmed' : ''}">
+        ${bat.badge ? `<div class="bat-badge">${bat.badge.replace(/-/g,' ')}</div>` : ''}
+        <div class="bat-header">
+          <div>
+            <span class="bat-merk">${bat.merk}</span>
+            <h3 class="bat-model">${bat.model}</h3>
+          </div>
+          <span class="compat-tag ${compatClass}">${compatLabel}</span>
+        </div>
+        <div class="bat-specs">
+          <div class="spec-item ${capOk ? 'spec-ok' : ''}">
+            <span class="spec-lbl">Capaciteit</span>
+            <span class="spec-val">${bat.capaciteit ? bat.capaciteit + ' kWh' : '–'}</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-lbl">Prijs (apparaat)</span>
+            <span class="spec-val">${prijsStr}</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-lbl">Garantie</span>
+            <span class="spec-val">${bat.garantie ? bat.garantie + ' jaar' : '–'}</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-lbl">Efficiëntie</span>
+            <span class="spec-val">${bat.efficientie ? bat.efficientie + '%' : '–'}</span>
+          </div>
+        </div>
+        ${bat.opmerkingen ? `<p class="bat-note">${bat.opmerkingen.substring(0, 100)}…</p>` : ''}
+        <a href="${bat.affiliateUrl}" rel="nofollow sponsored" target="_blank" class="btn btn-cta btn-full" data-affiliate-id="${bat.id}">
+          Bekijk prijs & info →
+        </a>
+      </div>
+    `;
+  }
+
+  function update() {
+    const n = parseInt(document.getElementById('aantalPanelen').value);
+    const wp = parseInt(document.getElementById('wpPaneel').value);
+    const merk = document.getElementById('omvormerMerk').value;
+    const type = document.getElementById('omvormerType').value;
+    const verbruik = parseInt(document.getElementById('jaarVerbruik').value);
+    const wensBackup = document.getElementById('wensBackup').checked;
+    const wensUitbreiden = document.getElementById('wensUitbreiden').checked;
+    const wensBudget = document.getElementById('wensBudget').checked;
+
+    document.getElementById('panelenOutput').textContent = `${n} panelen`;
+    const kWp = (n * wp) / 1000;
+    const productie = Math.round(kWp * 875);
+    document.getElementById('totaalKwp').textContent = `${kWp.toFixed(1)} kWp`;
+    document.getElementById('jaarProductie').textContent = `${productie.toLocaleString('nl-NL')} kWh/jr`;
+
+    // Tip
+    const tip = TIPS[merk] || TIPS.Anders;
+    document.getElementById('omvormerTip').innerHTML = `<p class="tip-box">💡 ${tip}</p>`;
+
+    const recCap = getRecommendedCap(productie, verbruik);
+    document.getElementById('capacityAdvice').innerHTML = `
+      <div class="cap-box">
+        <span class="cap-lbl">Aanbevolen capaciteit:</span>
+        <span class="cap-val">${recCap.label}</span>
+        <span class="cap-sub">voor ${productie.toLocaleString('nl-NL')} kWh/jr productie · ${verbruik.toLocaleString('nl-NL')} kWh/jr verbruik</span>
+      </div>
+    `;
+
+    const scored = BATTERIJEN.map(bat => {
+      let s = scoreCompatibility(bat, merk, type);
+      if (wensBackup && bat.id === 'tesla-powerwall3') s += 0.5;
+      if (wensUitbreiden && bat.id === 'sonnen-eco8') s += 0.4;
+      if (wensBudget && bat.prijs && bat.prijs < 6500) s += 0.4;
+      return { bat, s };
+    }).sort((a, b) => b.s - a.s);
+
+    document.getElementById('batteryGrid').innerHTML = scored.slice(0, 4).map(({ bat, s }) => renderCard(bat, Math.floor(s), recCap)).join('');
+  }
+
+  ['aantalPanelen', 'wpPaneel', 'omvormerMerk', 'omvormerType', 'jaarVerbruik', 'wensBackup', 'wensUitbreiden', 'wensBudget'].forEach(id => {
+    document.getElementById(id).addEventListener('input', update);
+    document.getElementById(id).addEventListener('change', update);
+  });
+  update();
+</script>
+
+<style>
+  .tool-page { padding: 2rem 0 4rem; }
+  .back-link { font-size: 0.875rem; color: var(--color-text-muted); text-decoration: none; display: inline-block; margin-bottom: 1rem; }
+  .back-link:hover { color: var(--color-primary); }
+  .tool-header { margin-bottom: 2.5rem; }
+  .tool-header h1 { margin-bottom: 0.5rem; }
+  .tool-intro { color: var(--color-text-light); font-size: 1.0625rem; max-width: 640px; }
+
+  .config-layout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 2.5rem; }
+  @media (max-width: 900px) { .config-layout { grid-template-columns: 1fr; } }
+
+  .card { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 1.5rem; }
+  .step-head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; }
+  .step-nr { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--color-primary); color: #fff; font-weight: 700; font-size: 0.875rem; flex-shrink: 0; }
+  .step-head h2 { font-size: 1.0625rem; margin: 0; }
+
+  .field-group { margin-bottom: 1.125rem; }
+  .field-group label { display: block; font-size: 0.8125rem; font-weight: 600; margin-bottom: 0.375rem; }
+  .field-group select, .field-group input[type="number"] { width: 100%; padding: 0.5rem 0.75rem; border: 1px solid var(--color-border); border-radius: var(--radius-md); font-size: 0.9375rem; background: var(--color-bg-alt); }
+  .field-group input[type="range"] { width: 100%; accent-color: var(--color-primary); }
+  .field-group output { display: block; text-align: right; font-size: 0.875rem; font-weight: 700; color: var(--color-primary); }
+
+  .checkbox-list { display: flex; flex-direction: column; gap: 0.5rem; }
+  .cb-item { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.875rem; }
+  .cb-item input { accent-color: var(--color-primary); }
+
+  .solar-summary { display: flex; gap: 1rem; margin-top: 0.875rem; padding: 0.75rem; background: var(--color-primary-light); border-radius: var(--radius-md); border: 1px solid var(--color-primary); }
+  .sum-item { flex: 1; text-align: center; }
+  .sum-label { display: block; font-size: 0.75rem; color: var(--color-primary-dark); }
+  .sum-val { display: block; font-weight: 700; font-size: 0.9375rem; color: var(--color-primary-dark); }
+
+  .tip-box { font-size: 0.8125rem; color: var(--color-text-light); background: #fffbeb; border: 1px solid #fde68a; border-radius: var(--radius-md); padding: 0.625rem 0.875rem; margin: 0.75rem 0 0; line-height: 1.5; }
+
+  .results-section { margin-bottom: 3rem; }
+  .results-header { margin-bottom: 1.5rem; }
+  .results-header h2 { margin-bottom: 0.75rem; }
+
+  .cap-box { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; padding: 0.75rem 1.25rem; background: var(--color-primary-light); border: 1px solid var(--color-primary); border-radius: var(--radius-lg); }
+  .cap-lbl { font-size: 0.875rem; color: var(--color-text-light); }
+  .cap-val { font-size: 1.25rem; font-weight: 800; color: var(--color-primary-dark); }
+  .cap-sub { font-size: 0.8125rem; color: var(--color-text-muted); }
+
+  .battery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1.25rem; }
+  .bat-card { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.875rem; position: relative; }
+  .bat-card.bat-dimmed { opacity: 0.55; }
+  .bat-badge { position: absolute; top: -10px; right: 1rem; background: var(--color-primary); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.625rem; border-radius: 9999px; text-transform: capitalize; }
+
+  .bat-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; }
+  .bat-merk { display: block; font-size: 0.75rem; font-weight: 600; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .bat-model { font-size: 1rem; font-weight: 700; margin: 0.125rem 0 0; }
+
+  .compat-tag { font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.625rem; border-radius: 9999px; white-space: nowrap; flex-shrink: 0; }
+  .c-perfect { background: #d1fae5; color: #065f46; }
+  .c-good { background: #fef3c7; color: #92400e; }
+  .c-ok { background: #dbeafe; color: #1e40af; }
+  .c-limited { background: #fef2f2; color: #991b1b; }
+
+  .bat-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 0.375rem; }
+  .spec-item { padding: 0.5rem; background: var(--color-bg-alt); border-radius: var(--radius-sm); }
+  .spec-item.spec-ok { background: var(--color-primary-light); border: 1px solid var(--color-primary); }
+  .spec-lbl { display: block; font-size: 0.7rem; color: var(--color-text-muted); margin-bottom: 0.125rem; }
+  .spec-val { display: block; font-size: 0.875rem; font-weight: 600; }
+
+  .bat-note { font-size: 0.8125rem; color: var(--color-text-light); line-height: 1.5; margin: 0; }
+
+  .how-section { margin-bottom: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-border); }
+  .how-section h2 { margin-bottom: 1.5rem; }
+  .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  @media (max-width: 768px) { .how-grid { grid-template-columns: 1fr; } }
+  .how-item { }
+  .how-nr { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: var(--color-primary-light); color: var(--color-primary); font-weight: 700; margin-bottom: 0.75rem; }
+  .how-item h3 { font-size: 1rem; margin-bottom: 0.375rem; }
+  .how-item p { font-size: 0.875rem; color: var(--color-text-light); line-height: 1.6; }
+
+  .tools-nav { padding-top: 2rem; border-top: 1px solid var(--color-border); }
+  .tools-nav h2 { margin-bottom: 1rem; font-size: 1.25rem; }
+  .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+  .tool-link-card { display: flex; flex-direction: column; gap: 0.375rem; padding: 1.25rem; border: 1px solid var(--color-border); border-radius: var(--radius-lg); text-decoration: none; color: var(--color-text); background: var(--color-bg); transition: all 0.15s; }
+  .tool-link-card:hover { border-color: var(--color-primary); background: var(--color-primary-light); text-decoration: none; }
+  .tc-icon { font-size: 1.75rem; }
+  .tool-link-card strong { display: block; font-size: 0.9375rem; }
+  .tool-link-card span:last-child { font-size: 0.8125rem; color: var(--color-text-light); }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.5rem; border-radius: var(--radius-md); font-weight: 600; font-size: 0.9375rem; cursor: pointer; text-decoration: none; border: none; transition: all 0.15s; }
+  .btn-cta { background: var(--color-primary); color: #fff; }
+  .btn-cta:hover { background: var(--color-primary-dark); text-decoration: none; color: #fff; }
+  .btn-full { width: 100%; text-align: center; }
+</style>
