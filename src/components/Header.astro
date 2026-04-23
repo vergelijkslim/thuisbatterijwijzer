@@ -1,8 +1,8 @@
 ---
 const navItems = [
+  { label: 'Vergelijking 2026', href: '/vergelijkingen/' },
   { label: 'Gidsen', href: '/gidsen/' },
-  { label: 'Vergelijkingen', href: '/vergelijkingen/' },
-  { label: 'Alle artikelen', href: '/artikelen/' },
+  { label: 'Zo vergelijken wij', href: '/zo-vergelijken-wij/' },
   { label: 'Gratis offertes', href: '/offerte/', highlight: true },
 ];
 ---
@@ -12,13 +12,13 @@ const navItems = [
     <a href="/" class="logo">
       <span class="logo-icon">
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="10" y="4" width="12" height="24" rx="3" fill="#0891b2"/>
-          <rect x="13" y="1" width="6" height="3" rx="1" fill="#06b6d4"/>
-          <rect x="13" y="9" width="6" height="4" rx="0.5" fill="#67e8f9"/>
-          <rect x="13" y="15" width="6" height="4" rx="0.5" fill="#67e8f9"/>
-          <rect x="13" y="21" width="6" height="4" rx="0.5" fill="#22d3ee" opacity="0.5"/>
-          <line x1="8" y1="16" x2="5" y2="16" stroke="#06b6d4" stroke-width="2" stroke-linecap="round"/>
-          <line x1="27" y1="16" x2="24" y2="16" stroke="#06b6d4" stroke-width="2" stroke-linecap="round"/>
+          <rect x="10" y="4" width="12" height="24" rx="3" fill="#d97706"/>
+          <rect x="13" y="1" width="6" height="3" rx="1" fill="#fbbf24"/>
+          <rect x="13" y="9" width="6" height="4" rx="0.5" fill="#fde68a"/>
+          <rect x="13" y="15" width="6" height="4" rx="0.5" fill="#fde68a"/>
+          <rect x="13" y="21" width="6" height="4" rx="0.5" fill="#fbbf24" opacity="0.5"/>
+          <line x1="8" y1="16" x2="5" y2="16" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/>
+          <line x1="27" y1="16" x2="24" y2="16" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/>
         </svg>
       </span>
       <span class="logo-text">Thuisbatterij<strong>Wijzer</strong><span class="logo-dot">.nl</span></span>
@@ -131,11 +131,11 @@ const navItems = [
   }
   .main-nav a.nav-highlight {
     color: #fff;
-    background: var(--color-secondary);
+    background: var(--color-primary);
     font-weight: 600;
   }
   .main-nav a.nav-highlight:hover {
-    background: #065f46;
+    background: var(--color-primary-dark);
     color: #fff;
   }
 
