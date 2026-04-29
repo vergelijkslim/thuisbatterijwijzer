@@ -12,16 +12,6 @@ const links: AffiliateLink[] = [
     commissionValue: '€50-€150 per lead (na TradeTracker registratie)',
   },
   {
-    id: 'energieopslag-vergelijk',
-    network: 'direct',
-    merchant: 'Energieopslag.info',
-    url: 'https://www.energieopslag.info/',
-    niche: 'thuisbatterij',
-    label: 'Vergelijk energieopslag',
-    commissionType: 'cpa',
-    commissionValue: '€40-€120 per lead',
-  },
-  {
     id: 'zonnepanelen-offerte',
     network: 'direct',
     merchant: 'Offerteadviseur',

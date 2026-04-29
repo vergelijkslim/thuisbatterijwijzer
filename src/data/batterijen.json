@@ -1,7 +1,7 @@
 {
   "_meta": {
     "beschrijving": "Top thuisbatterijen beschikbaar in Nederland — vergelijking",
-    "bijgewerkt": "2026-04-22",
+    "bijgewerkt": "2026-04-29",
     "bronnen": [
       "Fabrikant datasheets en websites (2025/2026 prijzen)",
       "Energieverbruik.nl reviews",
@@ -32,7 +32,7 @@
       "ip_rating": "IP52",
       "communicatie": ["Modbus", "Wi-Fi", "Ethernet"],
       "app": "mySonnen",
-      "affiliate_url": "https://sonnen.nl/thuisbatterij/eco-8?partner=vergelijk05-21",
+      "affiliate_url": "https://sonnen.nl/thuisbatterij/sonnenbatterie-10?partner=vergelijk05-21",
       "badge": "beste-kwaliteit",
       "opmerkingen": "Duits premium merk. Lange garantie, hoog aantal cycli. Smart energy management inbegrepen. Sonnen community: stroom delen."
     },
@@ -82,7 +82,7 @@
       "ip_rating": "IP65",
       "communicatie": ["Wi-Fi", "RS485", "PLC"],
       "app": "FusionSolar",
-      "affiliate_url": "https://solar.huawei.com/nl/home/luna2000?ref=vergelijk05-21",
+      "affiliate_url": "https://solar.huawei.com/nl/products/LUNA2000-7-14-21-S1?ref=vergelijk05-21",
       "badge": "beste-prijs-kwh",
       "opmerkingen": "Modulair systeem — eenvoudig uitbreidbaar. Hoge efficiëntie. Vereist Huawei omvormer."
     },
@@ -107,7 +107,7 @@
       "ip_rating": "IP65",
       "communicatie": ["SMA Speedwire", "Modbus", "SunSpec"],
       "app": "SMA Energy",
-      "affiliate_url": "https://www.sma-benelux.com/nl/storage?ref=vergelijk05-21",
+      "affiliate_url": "https://www.sma-nederland.nl/?ref=vergelijk05-21",
       "badge": null,
       "opmerkingen": "Dit is de batterijomvormer — combineer met losse batterijmodule (bijv. BYD HVS). Hoge efficiëntie. Goed integreerbaar."
     },
@@ -132,7 +132,7 @@
       "ip_rating": "IP55",
       "communicatie": ["CAN Bus", "RS485"],
       "app": "via omvormer app",
-      "affiliate_url": "https://www.byd-energy.eu/nl/battery-box-premium-hvs?ref=vergelijk05-21",
+      "affiliate_url": "https://bydbatterybox.com/?ref=vergelijk05-21",
       "badge": null,
       "opmerkingen": "Hoge efficiëntie. Veilige LiFePO4 chemie. Werkt met veel omvormers. Prijs-kwaliteit winnaar."
     },
@@ -182,7 +182,7 @@
       "ip_rating": "IP66",
       "communicatie": ["Wi-Fi", "Ethernet", "Modbus TCP"],
       "app": "Fronius Solar.web",
-      "affiliate_url": "https://www.fronius.com/nl/energie/hybrid-systems/symo-gen24-plus?ref=vergelijk05-21",
+      "affiliate_url": "https://www.fronius.com/nl-nl/netherlands/zonne-energie/woningeigenaren/producten-en-oplossingen/fotovoltaiek/gen24-plus-omvormer-voor-pv-systeem-backup-stroom?ref=vergelijk05-21",
       "badge": null,
       "opmerkingen": "Hybride omvormer — zonnepanelen en batterij in één apparaat. Hoge efficiëntie. Geschikt voor nieuwbouw en renovatie."
     },
@@ -232,7 +232,7 @@
       "ip_rating": "IP65 (omvormer)",
       "communicatie": ["Wi-Fi", "Ethernet", "Modbus TCP"],
       "app": "KOSTAL Solar Portal",
-      "affiliate_url": "https://www.kostal-solar-electric.com/nl/oplossingen/thuisbatterij?ref=vergelijk05-21",
+      "affiliate_url": "https://www.kostal-solar-electric.com/nl/batterij/?ref=vergelijk05-21",
       "badge": "beste-efficiëntie",
       "opmerkingen": "Hoogste omvormers efficiëntie in klasse. Hybride systeem met BYD batterij. Zeer stabiele technologie."
     },
@@ -257,7 +257,7 @@
       "ip_rating": "IP55",
       "communicatie": ["Wi-Fi", "Zigbee"],
       "app": "Enphase Enlighten",
-      "affiliate_url": "https://enphase.com/nl-nl/store/batteries?ref=vergelijk05-21",
+      "affiliate_url": "https://enphase.com/nl-nl/homeowners/iq-batteries?ref=vergelijk05-21",
       "badge": null,
       "opmerkingen": "Ideaal voor combinatie met Enphase micro-omvormers. Veilig ontwerp, geen hoog DC-spanning in huis. Modulair uitbreidbaar."
     }
