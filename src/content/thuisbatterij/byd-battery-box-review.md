@@ -191,6 +191,14 @@ De BYD Battery-Box valt onder **0% btw** bij woninginstallatie. Er is geen aanvu
 
 ---
 
+## Dit raad ik af
+
+**De BYD Battery-Box raad ik af als je wilt starten met 2,76 kWh.** Dat klinkt goedkoop (€1.500–€2.000 voor de kleinste module), maar installatiekosten zijn bij elke thuisbatterij €1.000–€2.000 fixed. Voor zo'n klein pak krijg je geen enkele zinvolle terugverdientijd. Begin minimaal bij 8,28 kWh (3 modules) voor een realistische business case.
+
+**De BYD raad ik af als je veel wil automatiseren of dynamisch wil laden.** Het energy management systeem is functioneel maar minder slim dan bij de Powerwall 3 of Huawei LUNA2000. Als je via een dynamisch contract wil arbitreren (laden als stroom goedkoop is, ontladen als die duur is), laat dan de BYD links liggen.
+
+**Mijn keuze:** De BYD Battery-Box is mijn keuze als iemand al een SMA- of Fronius-omvormer heeft en gewoon een betrouwbare batterij wil toevoegen zonder een heel nieuw ecosysteem aan te schaffen. De omvormer-onafhankelijkheid is de echte meerwaarde. Voor die situatie zou ik de 8,28 kWh of 11,04 kWh versie nemen — en niet kleiner.
+
 ## Conclusie
 
 De **BYD Battery-Box Premium HVS** is de meest universele thuisbatterij op de markt: hij werkt met vrijwel elke omvormer en is in kleine stappen schaalbaar. De LFP-chemie is een extra pluspunt voor wie duurzaamheid en veiligheid prioriteit geeft.

@@ -225,6 +225,14 @@ Bij dynamische tarieven kun je de Powerwall 3 's nachts opladen bij lage prijzen
 
 ---
 
+## Dit raad ik af
+
+**De Powerwall 3 raad ik af als je geen warmtepomp of laadpaal hebt.** Het hoge vermogen van 11,5 kW is dé reden om de Powerwall te kiezen boven alternatieven. Heb je die apparaten niet, dan betaal je €2.000–3.000 méér dan voor de Huawei LUNA2000 voor capaciteit die je nooit gebruikt. In dat geval is de Huawei de logischere keuze.
+
+**De Powerwall 3 raad ik ook af als je al een SolarEdge-omvormer hebt.** De AC-koppeling werkt, maar je verliest 2,5% efficiëntie en je rommelt met twee ecosystemen. De SolarEdge Home Battery integreert native en is €3.000–4.000 goedkoper in die configuratie.
+
+**Mijn keuze:** Als ik nu een thuisbatterij kocht voor een huis met warmtepomp en laadpaal, zou ik de Powerwall 3 nemen. Niet uit merkvoorkeur, maar puur vanwege de 11,5 kW — dat vermogen kan ik echt gebruiken als alles tegelijk aanstaat. Zonder die apparaten? Dan de Huawei LUNA2000 10 kWh, die presteert identiek voor het normale gebruik en kost €4.000–5.000 minder.
+
 ## Conclusie
 
 De Tesla Powerwall 3 is de beste thuisbatterij van 2026 als je hoge vermogens nodig hebt, waarde hecht aan betrouwbare blackout-beveiliging en de beste software-ervaring wil. Het is echter ook de duurste optie.

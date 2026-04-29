@@ -174,6 +174,14 @@ Op forums zoals Tweakers.net en Reddit (r/zonnepanelen) zijn de ervaringen overw
 
 ---
 
+## Dit raad ik af
+
+**De Sessy raad ik af als je stroom wil hebben bij stroomuitval.** De Sessy heeft geen blackout-modus — zodra het net wegvalt, stopt de Sessy ook. Als jij op het platteland woont of regelmatig stroomuitval hebt, is dit een dealbreaker. Kijk dan naar de Tesla Powerwall 3 (standaard blackout) of voeg een extra module toe bij andere merken.
+
+**De Sessy raad ik ook af als je meer dan 5 kWh per dag laadt en ontlaadt.** Het dagvermogen is 1,5 kW per uur, wat voor grote huishoudens met een warmtepomp of laadpaal te laag is. Je kunt dan niet hard genoeg ontladen om de piek op te vangen. De Powerwall 3 met 11,5 kW continu is dan een heel andere categorie.
+
+**Mijn keuze:** Voor een gezin van vier zonder warmtepomp of laadpaal, met zonnepanelen en een dynamisch energiecontract, zou ik de Sessy serieus overwegen. Nederlandstalige app, Nederlandse support, en het slim laden via P1 werkt echt goed. Maar ik zou altijd eerst de Huawei LUNA2000 vergelijken — die is qua functionaliteit rijker voor een vergelijkbare prijs.
+
 ## Conclusie
 
 De Sessy thuisbatterij is een **serieuze concurrent** in de Nederlandse markt. Voor een groot deel van de huishoudens — met name bestaande zonnepaneelbezitters — biedt het de beste balans tussen prijs, slimme functies en gebruiksgemak. Het feit dat het een Nederlands merk is met Nederlandse support is in de praktijk merkbaar.

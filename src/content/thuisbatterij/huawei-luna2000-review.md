@@ -220,6 +220,14 @@ Volledig overzicht: [thuisbatterij subsidie gids 2026](/thuisbatterij/thuisbatte
 
 ---
 
+## Dit raad ik af
+
+**De LUNA2000 raad ik af als je geen Huawei omvormer hebt en ook geen nieuwe installatie plant.** De sterkste troef — native integratie met de SUN2000 omvormer — heb je dan niet. Je betaalt dan voor een AC-gekoppelde batterij die vergelijkbaar presteert met goedkopere alternatieven, maar met een minder intuïtieve app-instelling.
+
+**De LUNA2000 raad ik ook af als blackout-beveiliging voor jou essentieel is.** Die is niet standaard inbegrepen en vereist een extra module (€500–€800 extra). De Tesla Powerwall 3 heeft dit standaard. Als je op het platteland woont met regelmatige stroomuitval, is de Powerwall de betere investering.
+
+**Mijn keuze:** Voor een nieuwe installatie waarbij ik de Huawei SUN2000 omvormer neem, kies ik de LUNA2000 10 kWh. Die combinatie is in Nederland de meest verkochte, en terecht: je haalt de beste prijs per kWh én de beste integratie. Maar als ik een andere omvormer heb? Dan kijk ik eerst naar de BYD Battery-Box — vergelijkbare prijs, geen merkverplichting.
+
 ## Conclusie
 
 De **Huawei LUNA2000** is de **beste keuze voor wie veel capaciteit wil tegen de laagste prijs per kWh**. De efficiëntie is uitstekend, de schaalbaarheid tot 30 kWh is uniek in dit prijssegment, en de integratie met de Huawei SUN2000 omvormer werkt naadloos.

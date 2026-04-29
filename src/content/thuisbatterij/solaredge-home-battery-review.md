@@ -221,6 +221,14 @@ Er bestaat geen directe nationale subsidie voor thuisbatterijen, maar sommige ge
 
 ---
 
+## Dit raad ik af
+
+**De SolarEdge Home Battery raad ik af als je geen SolarEdge omvormer hebt.** Dit klinkt als een open deur, maar ik zie het regelmatig: mensen vragen een offerte aan op basis van de prijs, zonder te realiseren dat de batterij niet compatibel is met hun bestaande Fronius of SMA omvormer. Vraag dit altijd expliciet na bij je installateur vóór je een beslissing maakt.
+
+**De SolarEdge raad ik ook af als blackout-beveiliging je prioriteit is.** Die functie bestaat wel in het SolarEdge-ecosysteem, maar vereist een speciale omvormer (SolarEdge with backup interface) en configuratie — het is geen standaard feature. De Tesla Powerwall 3 doet dit out of the box en betrouwbaarder.
+
+**Mijn keuze:** Als ik al een SolarEdge HD-Wave omvormer heb, neem ik de SolarEdge Home Battery 10 kWh. DC-koppeling geeft 5–8% hogere efficiëntie, en de integratie met de MySolarEdge-app maakt alles overzichtelijk in één scherm. Maar als ik bij nul zou beginnen, zou ik niet per se voor SolarEdge kiezen alleen vanwege de batterij — dan is de Huawei LUNA2000 + SUN2000 omvormer een sterker totaalpakket voor minder geld.
+
 ## Conclusie
 
 De **SolarEdge Home Battery** is een **uitstekende keuze voor wie al SolarEdge-zonnepanelen heeft**. De DC-koppeling zorgt voor hogere efficiëntie, de integratie is naadloos en de schaalbaarheid biedt flexibiliteit voor de toekomst.
