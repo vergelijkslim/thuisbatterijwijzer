@@ -134,6 +134,14 @@ Modulaire Li-ijzerfosfaat (LFP) batterij met zeer lange levensduur (6.000+ cycli
 
 ---
 
+## Dit raad ik af
+
+**De FENECON Home raad ik af voor de gemiddelde huiseigenaar.** OpenEMS en maximale configuratiemogelijkheden klinken aantrekkelijk, maar je hebt hier een installateur nodig die dit systeem echt kent. Die is in Nederland schaars. Je betaalt een hoge prijs voor flexibiliteit die je waarschijnlijk nooit gebruikt, en als er iets misgaat, is het lastiger te troubleshooten. Houd de FENECON voor gevorderde energie-enthousiaste gebruikers die zelf willen sleutelen.
+
+**Ik raad ook af om te small te beginnen.** Een batterij van 5 kWh of minder heeft bij de huidige energieprijzen een terugverdientijd van 15–20 jaar. Dat is niet realistisch. Als je budget te beperkt is voor minimaal 8 kWh, wacht dan nog een jaar of twee: de prijzen dalen en de businesscase wordt beter.
+
+**Mijn keuze:** Huawei LUNA2000 10 kWh + SUN2000 omvormer als je een nieuwe installatie plant. Dit is in Nederland momenteel het beste totaalpakket voor de gemiddelde huiseigenaar: beste prijs per kWh, betrouwbare integratie, en installateurs die dit systeem in hun slaap kennen. Tesla Powerwall 3 alleen als je een warmtepomp en laadpaal hebt — dan is het hoge vermogen de moeite waard.
+
 ## Hoe wij vergelijken
 
 Alle modellen zijn beoordeeld op 7 criteria: capaciteit & efficiëntie, laad/ontlaadvermogen, terugverdientijd, garantie, installatie-eisen, app & monitoring en omvormercompatibiliteit. [Lees onze volledige methodologie →](/zo-vergelijken-wij/)
