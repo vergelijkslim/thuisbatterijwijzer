@@ -60,6 +60,9 @@ const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" /></noscript>
 
+  <!-- TradeTracker site verificatie -->
+  <meta name="tt-site-verification" content="fe4b8b52d4f4e49e6bf2dd4f593a8f8a598b1bc1" />
+
   <!-- Google Analytics 4 — loaded only after cookie consent -->
   <script is:inline>
     window.dataLayer = window.dataLayer || [];
@@ -111,5 +114,12 @@ const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
     <Footer />
     <CookieConsent />
   </div>
+
+  <!-- Begin TradeTracker SuperTag Code -->
+  <script is:inline>
+  var _TradeTrackerTagOptions = { t: 'a', s: '509224', chk: 'f1190ed7488723e99209cd333031d925', overrideOptions: {} };
+  (function() {var tt = document.createElement('script'), s = document.getElementsByTagName('script')[0]; tt.setAttribute('type', 'text/javascript'); tt.setAttribute('src', (document.location.protocol == 'https:' ? 'https' : 'http') + '://tm.tradetracker.net/tag?t=' + _TradeTrackerTagOptions.t + '&s=' + _TradeTrackerTagOptions.s + '&chk=' + _TradeTrackerTagOptions.chk); s.parentNode.insertBefore(tt, s);})();
+  </script>
+  <!-- End TradeTracker SuperTag Code -->
 </body>
 </html>
