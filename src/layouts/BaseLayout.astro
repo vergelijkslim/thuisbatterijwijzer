@@ -25,7 +25,7 @@ const {
   structuredData,
 } = Astro.props;
 
-const siteName = 'Vergelijk uw Thuisbatterij';
+const siteName = 'Vergelijk Uw Thuisbatterij';
 const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
 ---
 
@@ -62,6 +62,10 @@ const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
 
   <!-- TradeTracker site verificatie -->
   <meta name="tt-site-verification" content="fe4b8b52d4f4e49e6bf2dd4f593a8f8a598b1bc1" />
+
+  {import.meta.env.PUBLIC_GA4_ID && (
+    <meta name="ga-measurement-id" content={import.meta.env.PUBLIC_GA4_ID} />
+  )}
 
   <!-- Google Analytics 4 — loaded only after cookie consent -->
   <script is:inline>
