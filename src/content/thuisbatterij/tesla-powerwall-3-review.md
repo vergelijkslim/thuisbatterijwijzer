@@ -1,6 +1,6 @@
 ---
 title: "Tesla Powerwall 3 review 2026: prijs, specs en ervaringen"
-description: "Uitgebreide review van de Tesla Powerwall 3 in Nederland. Prijs, capaciteit, vermogen, installatie, app en eerlijke beoordeling. Is het de beste thuisbatterij van 2026?"
+description: "Review van de Tesla Powerwall 3 in Nederland. Prijs, capaciteit, vermogen, installatie en eerlijke beoordeling. Is het de beste thuisbatterij van 2026?"
 niche: thuisbatterij
 type: review
 publishDate: 2026-04-23

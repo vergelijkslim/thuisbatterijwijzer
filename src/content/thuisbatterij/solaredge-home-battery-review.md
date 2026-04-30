@@ -1,6 +1,6 @@
 ---
 title: "SolarEdge Home Battery review 2026: prijs, specs en ervaringen"
-description: "Uitgebreide review van de SolarEdge Home Battery in Nederland. Prijs, capaciteit, integratie met SolarEdge omvormer, voor- en nadelen. Is dit de beste keuze als je al SolarEdge hebt?"
+description: "Review van de SolarEdge Home Battery: prijs, capaciteit, integratie met SolarEdge omvormer en voor- en nadelen. Beste keuze voor SolarEdge-gebruikers in 2026?"
 niche: thuisbatterij
 type: review
 publishDate: 2026-04-29

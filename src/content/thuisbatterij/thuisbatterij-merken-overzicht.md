@@ -1,6 +1,6 @@
 ---
 title: "Thuisbatterij merken overzicht 2026: alle merken vergeleken"
-description: "Volledig overzicht van alle thuisbatterij merken beschikbaar in Nederland in 2026. Van Tesla en SolarEdge tot Sessy, Huawei en BYD. Vergelijk specs, prijs en geschiktheid."
+description: "Overzicht van alle thuisbatterij merken in Nederland in 2026. Van Tesla en SolarEdge tot Sessy, Huawei en BYD. Vergelijk specs, prijs en geschiktheid."
 niche: thuisbatterij
 type: vergelijking
 publishDate: 2026-04-29
@@ -112,6 +112,8 @@ De Huawei LUNA2000 is een DC-gekoppelde batterij met uitstekende specs voor een 
 
 **Capaciteit:** 5–30 kWh | **Garantie:** 10 jaar | **Prijs:** €6.000–€9.000 (10 kWh)
 
+→ [Lees de volledige Huawei LUNA2000 review](/thuisbatterij/huawei-luna2000-review/)
+
 ---
 
 ## Sessy Home
@@ -156,6 +158,8 @@ BYD (Build Your Dreams) is een Chinees bedrijf dat ook Tesla-concurrerende EV's 
 - Minder bekendheid in NL → minder installateurs
 
 **Capaciteit:** 2,56–25,6 kWh | **Garantie:** 10 jaar | **Prijs:** €4.000–€10.000
+
+→ [Lees de volledige BYD Battery-Box review](/thuisbatterij/byd-battery-box-review/)
 
 ---
 
@@ -297,6 +301,8 @@ De thuisbatterijmarkt biedt in 2026 voor iedere situatie een passend product:
 - **Sonnen** — premium Duits, smart grid functies
 
 Wil je een gepersonaliseerd advies? Bekijk onze [thuisbatterij vergelijking](/thuisbatterij/thuisbatterij-vergelijken-2026/) of vraag een [vrijblijvende offerte](/offerte/) aan.
+
+Geen eigen woning of wil je flexibeler beginnen? Lees onze gids over [stekkerbatterijen en draagbare batterijen](/thuisbatterij/stekkerbatterij-gids-2026/).
 
 ---
 

@@ -4,7 +4,7 @@ description: "Vergelijk de beste thuisbatterijen van 2026 op capaciteit, vermoge
 niche: thuisbatterij
 type: vergelijking
 publishDate: 2026-04-01
-updatedDate: 2026-04-22
+updatedDate: 2026-04-30
 author: Redactie ThuisbatterijWijzer
 draft: false
 featured: true
@@ -26,7 +26,7 @@ faq:
 
 # Thuisbatterij vergelijken 2026: de 5 beste modellen
 
-*Bijgewerkt: 22 april 2026 | Prijzen gecontroleerd op: 22 april 2026*
+*Bijgewerkt: 30 april 2026 | Prijzen gecontroleerd op: 30 april 2026*
 
 Een thuisbatterij stelt je in staat om overdag opgewekte zonne-energie op te slaan voor gebruik 's avonds en 's nachts. Daarmee vermijd je het lage teruglevertarief (€0,08/kWh) en gebruik je je eigen goedkopere zonne-energie (waarde €0,27/kWh). In deze vergelijking beoordeelden we 12 modellen op 7 criteria. Dit zijn onze top 5.
 
@@ -65,7 +65,7 @@ De Tesla Powerwall 3 is de meest complete thuisbatterij op de markt. Het hoge ve
 
 ### 2. Huawei LUNA2000 — Beste prijs-kwaliteit
 
-**Score: 8,7 / 10**
+**Score: 8,3 / 10** ([Lees de volledige Huawei LUNA2000 review →](/thuisbatterij/huawei-luna2000-review/))
 
 | Specificatie | Waarde |
 |---|---|
@@ -124,13 +124,13 @@ Open-source energiemanagementsysteem (OpenEMS) met maximale flexibiliteit. Gesch
 
 ### 5. BYD Battery-Box Premium HVS — Budgetvriendelijk
 
-**Score: 7,8 / 10**
+**Score: 7,5 / 10** ([Lees de volledige BYD Battery-Box review →](/thuisbatterij/byd-battery-box-review/))
 
 Modulaire Li-ijzerfosfaat (LFP) batterij met zeer lange levensduur (6.000+ cycli). Veiliger en duurzamer dan NMC-batterijen. Compatibel met de meeste omvormers.
 
 | Capaciteit | Prijs excl. inst. | Terugverdientijd |
 |---|---|---|
-| 5–22,1 kWh | €5.500–€14.000 | 9–13 jaar |
+| 2,56–22,1 kWh | €5.500–€14.000 | 9–13 jaar |
 
 ---
 
@@ -145,5 +145,9 @@ Modulaire Li-ijzerfosfaat (LFP) batterij met zeer lange levensduur (6.000+ cycli
 ## Hoe wij vergelijken
 
 Alle modellen zijn beoordeeld op 7 criteria: capaciteit & efficiëntie, laad/ontlaadvermogen, terugverdientijd, garantie, installatie-eisen, app & monitoring en omvormercompatibiliteit. [Lees onze volledige methodologie →](/zo-vergelijken-wij/)
+
+## Wil je geen vaste thuisbatterij?
+
+Woon je in een appartement of wil je geen professionele installatie? Bekijk onze gids over [stekkerbatterijen en draagbare thuisbatterijen](/thuisbatterij/stekkerbatterij-gids-2026/) — een flexibel alternatief voor huurders en balkonsystemen.
 
 *Prijsbronnen: fabrikantwebsites en installateur-offertes (april 2026). Terugverdientijd gebaseerd op gemiddeld NL-verbruik 3.500 kWh/jaar, energieprijs €0,27/kWh, teruglevertarief €0,08/kWh.*

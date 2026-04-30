@@ -1,6 +1,6 @@
 ---
 title: "Sessy thuisbatterij review 2026: het enige Nederlandse merk getest"
-description: "Uitgebreide review van de Sessy thuisbatterij: prijs, specs, installatie en echte ervaringen. Is dit Nederlandse merk het waard? Wij vergeleken het met Tesla en Huawei."
+description: "Uitgebreide review van de Sessy thuisbatterij: prijs, specs, installatie en echte ervaringen. Is dit Nederlandse merk het waard? Vergeleken met Tesla en Huawei."
 niche: thuisbatterij
 type: review
 publishDate: 2026-04-23

@@ -1,6 +1,6 @@
 ---
 title: "Huawei LUNA2000 review 2026: prijs, specs en ervaringen"
-description: "Uitgebreide review van de Huawei LUNA2000 thuisbatterij in Nederland. Prijs, capaciteit, integratie, voor- en nadelen. Is dit de beste prijs-kwaliteit thuisbatterij van 2026?"
+description: "Review van de Huawei LUNA2000 thuisbatterij in Nederland. Prijs, capaciteit, integratie met Huawei omvormer en voor- en nadelen. Beste prijs-kwaliteit van 2026?"
 niche: thuisbatterij
 type: review
 publishDate: 2026-04-29

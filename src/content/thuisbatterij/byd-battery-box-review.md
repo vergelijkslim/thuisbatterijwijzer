@@ -1,6 +1,6 @@
 ---
 title: "BYD Battery-Box review 2026: prijs, specs en ervaringen"
-description: "Uitgebreide review van de BYD Battery-Box Premium HVS in Nederland. Prijs, capaciteit, compatibiliteit en echte ervaringen. Is dit de meest schaalbare thuisbatterij van 2026?"
+description: "Review van de BYD Battery-Box Premium HVS in Nederland. Prijs, capaciteit, compatibiliteit en echte ervaringen. Is dit de beste thuisbatterij van 2026?"
 niche: thuisbatterij
 type: review
 publishDate: 2026-04-29

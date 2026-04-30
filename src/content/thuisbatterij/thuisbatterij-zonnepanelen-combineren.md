@@ -1,6 +1,6 @@
 ---
 title: "Thuisbatterij en zonnepanelen combineren: zo doe je het slim"
-description: "Alles over het combineren van een thuisbatterij met zonnepanelen. AC- vs. DC-koppeling, omvormercompatibiliteit, eigenverbruik verhogen en slimme laadstrategieën."
+description: "Thuisbatterij combineren met zonnepanelen: AC- vs. DC-koppeling, omvormercompatibiliteit en slimme laadstrategieën. Eigenverbruik verhogen van 35% naar 75%+."
 niche: thuisbatterij
 type: gids
 publishDate: 2026-04-10
@@ -92,6 +92,8 @@ De beste combinatie hangt af van je huidige situatie:
 - **Budget:** BYD Battery-Box HVS (LFP, lang mee)
 
 [Vraag vrijblijvend offertes aan voor jouw situatie →](/offerte/)
+
+Heb je balkonzonnepanelen of een huurwoning? Bekijk onze [stekkerbatterij gids 2026](/thuisbatterij/stekkerbatterij-gids-2026/) voor een alternatief zonder professionele installatie.
 
 ---
 

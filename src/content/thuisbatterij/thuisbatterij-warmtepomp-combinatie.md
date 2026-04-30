@@ -1,6 +1,6 @@
 ---
 title: "Thuisbatterij en warmtepomp combineren in 2026: zo werkt het"
-description: "Thuisbatterij combineren met een warmtepomp: is dat slim? We leggen uit hoe de combinatie werkt, wat het oplevert en waar je op moet letten. Met rekenvoorbeelden voor Nederlandse situaties."
+description: "Thuisbatterij combineren met een warmtepomp: is dat slim? Hoe werkt de combinatie, wat levert het op? Met rekenvoorbeelden voor Nederlandse situaties in 2026."
 niche: thuisbatterij
 type: gids
 publishDate: 2026-04-29
