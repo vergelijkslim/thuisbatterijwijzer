@@ -8,7 +8,7 @@ updatedDate: 2026-04-22
 author: Redactie ThuisbatterijWijzer
 draft: false
 featured: true
-affiliateLinks: [thuisbatterij-offerte, zonnepanelen-offerte, subsidie-check]
+affiliateLinks: [thuisbatterij-offerte, zonnepanelen-offerte, subsidie-check, amazon-energie-monitor]
 keywords:
   - thuisbatterij kosten
   - thuisbatterij terugverdientijd

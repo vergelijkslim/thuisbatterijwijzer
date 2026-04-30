@@ -1,7 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import AffiliateButton from '../../components/AffiliateButton.astro';
 import { getCollection, render } from 'astro:content';
 import '../../lib/affiliate-data';
+import { getLink } from '../../lib/affiliates';
 
 export async function getStaticPaths() {
   const articles = await getCollection('thuisbatterij');
@@ -81,6 +83,20 @@ const allStructuredData = faqStructuredData
         <Content />
       </div>
 
+      {article.data.affiliateLinks && article.data.affiliateLinks.length > 0 && (() => {
+        const validLinks = article.data.affiliateLinks.filter((id: string) => getLink(id));
+        return validLinks.length > 0 ? (
+          <div class="cta-box">
+            <h3>Direct vergelijken</h3>
+            <div class="cta-buttons">
+              {validLinks.map((id: string) => (
+                <AffiliateButton linkId={id} variant="cta" />
+              ))}
+            </div>
+          </div>
+        ) : null;
+      })()}
+
       {article.data.faq.length > 0 && (
         <section class="faq-section">
           <h2>Veelgestelde vragen</h2>
@@ -97,6 +113,26 @@ const allStructuredData = faqStructuredData
 </BaseLayout>
 
 <style>
+  .cta-box {
+    background: var(--color-bg-alt, #f8fafc);
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: var(--radius-xl, 1rem);
+    padding: 1.5rem 2rem;
+    margin: 2.5rem 0;
+    text-align: center;
+  }
+  .cta-box h3 {
+    margin: 0 0 1rem;
+    font-size: 1.125rem;
+    color: var(--color-text, #111827);
+  }
+  .cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+  }
+
   .article-page { padding: 3rem 0; }
   .article-page .container { max-width: var(--content-width); }
   .article-header { margin-bottom: 2.5rem; }

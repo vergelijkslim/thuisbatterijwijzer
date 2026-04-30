@@ -8,7 +8,7 @@ updatedDate: 2026-04-30
 author: Redactie ThuisbatterijWijzer
 draft: false
 featured: false
-affiliateLinks: [thuisbatterij-offerte]
+affiliateLinks: [thuisbatterij-offerte, amazon-ecoflow-river2]
 keywords:
   - stekkerbatterij
   - stekkerbatterij zonnepanelen
