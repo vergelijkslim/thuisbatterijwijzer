@@ -107,6 +107,16 @@ Een thuisbatterij is financieel aantrekkelijker als:
 - Je **stroomzekerheid** wil bij uitval (Powerwall 3 biedt blackout-beveiliging)
 - Energieprijzen stijgen verder
 
+## Dit raad ik af
+
+**Een thuisbatterij zonder zonnepanelen raad ik af.** Zonder zonnepanelen laad je de batterij met netspanning en ontlaad je het later. Het arbitragevoordeel is minimaal bij de huidige energieprijzen en rechtvaardigt de investering van €8.000–€14.000 niet. De businesscase staat of valt met eigen zonne-opwekking.
+
+**Ik raad ook af om je beslissing te baseren op de kortste terugverdientijd die je online tegenkomt.** Sommige sites rekenen met optimistische aannames (hoge energieprijzen, maximale zonne-opwekking, laag installatiebedrag). Gebruik onze rekentool met je eigen verbruik en een conservatief energieprijsscenario.
+
+**Een thuisbatterij kopen als de saldering pas over 2 jaar afloopt raad ik af als timing.** Wacht tot je voelt wat de salderingsafbouw in de praktijk betekent voor jouw rekening — dan weet je of de batterij daadwerkelijk rendement geeft.
+
+**Mijn keuze:** Als ik al 12+ zonnepanelen heb, een dynamisch energiecontract overweeg, en mijn stroomrekening wil verlagen: thuisbatterij van minimaal 10 kWh, gekozen op basis van mijn omvormer. Anders: wachten tot de prijzen verder dalen.
+
 ## Conclusie
 
 Een thuisbatterij is in 2026 financieel **niet vanzelfsprekend rendabel** op basis van huidige energieprijzen. De technische voordelen (stroomzekerheid, slim laden, minder netbelasting) kunnen de aanschaf rechtvaardigen, maar reken niet blind op een snelle terugverdientijd.

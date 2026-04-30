@@ -189,6 +189,14 @@ Met een batterij met blackout-beveiliging (zoals de Tesla Powerwall 3) kun je de
 
 ---
 
+## Dit raad ik af
+
+**Ik raad af om een thuisbatterij van minder dan 10 kWh te combineren met een warmtepomp.** Een warmtepomp trekt 3–5 kW continu. Een kleine batterij van 5 kWh is binnen anderhalf uur leeg als de warmtepomp draait. Dan heb je een dure batterij die je nauwelijks helpt. Minimaal 10 kWh voor een zinvolle combinatie met warmtepomp.
+
+**Ik raad ook af om een elektrische warmtepomp te installeren en de thuisbatterij een jaar later toe te voegen.** De installateur moet dan opnieuw naar je toe voor de aansluiting en configuratie. Installeer beide tegelijk — dat bespaart €500–€800 aan herinstallatie-arbeidskosten.
+
+**Mijn keuze:** Tesla Powerwall 3 als je warmtepomp en laadpaal hebt. De 11,5 kW continu vermogen is de reden — de Powerwall kan die drie apparaten tegelijk voeden zonder netafname. Dat is het enige scenario waarbij de meerprijs van de Powerwall boven de Huawei LUNA2000 te rechtvaardigen is.
+
 ## Conclusie
 
 **De combinatie thuisbatterij + warmtepomp is financieel en praktisch zinvol** voor de meeste Nederlandse huishoudens die al zonnepanelen hebben of willen nemen. De besparing bedraagt typisch **€400–€700 per jaar** extra ten opzichte van enkel zonnepanelen.

@@ -277,6 +277,14 @@ Bekijk het volledige subsidiepakket in onze [subsidie gids 2026](/thuisbatterij/
 
 ---
 
+## Dit raad ik af
+
+**Sonnen raad ik af voor de gemiddelde Nederlandse consument.** Sonnen is een goed Duits merk met smart grid-functies, maar de prijs is significant hoger dan vergelijkbare alternatieven. Tenzij je specifiek voor het Sonnen Community-netwerk (energie delen met buren) kiest of een ecosysteem-voorkeur hebt, betaal je een premium voor functies die de meeste mensen niet gebruiken.
+
+**Ik raad ook af om een merk te kiezen puur op basis van naamsbekendheid.** Tesla is het bekendste merk maar ook het duurste. Huawei LUNA2000 is minder bekend maar biedt vergelijkbare of betere specs voor minder geld. Kies op basis van omvormer-compatibiliteit en gebruiksscenario, niet op naamsbekendheid.
+
+**Mijn keuze:** Voor een nieuwe installatie: Huawei LUNA2000 + SUN2000 omvormer. Voor een bestaande installatie met een andere omvormer: BYD Battery-Box (werkt met vrijwel alles). Tesla Powerwall 3 alleen als je een warmtepomp én laadpaal hebt en het hoge vermogen echt nodig hebt.
+
 ## Conclusie
 
 De thuisbatterijmarkt biedt in 2026 voor iedere situatie een passend product:

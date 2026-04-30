@@ -76,6 +76,14 @@ Stel de batterij in om eerst overdag te laden met zonne-energie en pas daarna he
 ### Blackout-modus
 De Tesla Powerwall 3 en FENECON Home bieden echte blackout-beveiliging: bij een stroomstoring schakelen ze automatisch over op batterijstroom.
 
+## Dit raad ik af
+
+**Ik raad af om een batterij te kopen als je minder dan 10 zonnepanelen hebt.** Minder dan 10 panelen (3.500 Wp) wekken in Nederland jaarlijks circa 3.000–3.500 kWh op. Dat is ongeveer wat je verbruikt — er is nauwelijks overschot om op te slaan. Een batterij rendeer dan pas op 15+ jaar terugverdientijd.
+
+**DC-koppeling forceren bij een bestaande installatie raad ik af.** Als je al een omvormer hebt die AC-koppeling ondersteunt, is het economisch niet zinvol om die te vervangen puur voor de 3–5% efficiëntiewinst van DC-koppeling. Dat efficiëntieverschil kost minder dan de omvormervervanging.
+
+**Mijn keuze:** BYD Battery-Box HVS 11 kWh als je een bestaande installatie met een niet-Huawei, niet-SolarEdge omvormer hebt. Omvormer-onafhankelijk, LFP-chemie (25+ jaar levensduur), en schaalbaar. Voor nieuwe installaties: Huawei pakket.
+
 ## Conclusie
 
 De beste combinatie hangt af van je huidige situatie:

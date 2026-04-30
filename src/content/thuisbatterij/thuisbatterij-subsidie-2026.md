@@ -116,6 +116,14 @@ Houd RVO.nl en Milieu Centraal in de gaten voor updates.
 
 ---
 
+## Dit raad ik af
+
+**Ik raad af om aankoop uit te stellen omdat je hoopt op meer subsidie.** Nederland loopt achter op Duitsland en België wat betreft thuisbatterij-subsidies, en de politieke bereidheid om dit te veranderen is laag. Meer subsidie komt er waarschijnlijk niet op korte termijn. De huidige fiscale voordelen (0% btw, goedkope groene lening) zijn de tools die je hebt.
+
+**Ik raad ook af om subsidie als doorslaggevend argument te gebruiken.** Zoals hierboven: de businesscase van een thuisbatterij staat of valt met zonne-opwekking en een dynamisch contract, niet met een éénmalige subsidie van €500–€1.000. Focus op de jaarlijkse besparing, niet de eenmalige tegemoetkoming.
+
+**Mijn keuze:** Combineer altijd minimaal twee maatregelen als je ISDE aanvraagt voor de warmtepomp — dan telt de thuisbatterij mee als onderdeel van het energiepakket bij sommige gemeentelijke regelingen. Vraag dit expliciet na bij de installateur voordat je een keuze maakt.
+
 ## Samenvatting: jouw subsidie-checklist
 
 ✅ **Check je gemeente** — sommige gemeenten hebben eigen regelingen  
