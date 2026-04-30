@@ -86,6 +86,19 @@ const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
       var gaMeasurementId = document.querySelector('meta[name="ga-measurement-id"]');
       if (gaMeasurementId) window.__loadGA(gaMeasurementId.content);
     }
+    // Affiliate + outbound click tracking
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('a[data-affiliate-id], a[rel~="sponsored"]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          if (typeof gtag === 'function') gtag('event', 'affiliate_click', { affiliate_id: el.getAttribute('data-affiliate-id') || 'unknown', affiliate_network: el.getAttribute('data-affiliate-network') || 'unknown', page_path: window.location.pathname, link_url: el.href });
+        });
+      });
+      document.querySelectorAll('a[target="_blank"]').forEach(function (el) {
+        if (!el.hasAttribute('data-affiliate-id')) {
+          el.addEventListener('click', function () { if (typeof gtag === 'function') gtag('event', 'outbound_click', { link_url: el.href, page_path: window.location.pathname }); });
+        }
+      });
+    });
   </script>
 
   {structuredData && (
