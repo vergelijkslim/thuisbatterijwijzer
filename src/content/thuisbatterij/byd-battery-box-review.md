@@ -8,7 +8,7 @@ updatedDate: 2026-04-29
 author: Redactie ThuisbatterijWijzer
 draft: false
 featured: false
-affiliateLinks: [thuisbatterij-offerte]
+affiliateLinks: ["thuisbatterij-offerte", "energieopslag-vergelijk", "amazon-victron-smartshunt"]
 keywords:
   - byd battery-box
   - byd battery-box prijs

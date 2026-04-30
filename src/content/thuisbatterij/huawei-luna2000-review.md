@@ -8,7 +8,7 @@ updatedDate: 2026-04-29
 author: Redactie ThuisbatterijWijzer
 draft: false
 featured: true
-affiliateLinks: [thuisbatterij-offerte]
+affiliateLinks: ["thuisbatterij-offerte", "energieopslag-vergelijk", "amazon-energie-monitor"]
 keywords:
   - huawei luna2000
   - huawei luna2000 prijs

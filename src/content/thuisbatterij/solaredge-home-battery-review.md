@@ -8,7 +8,7 @@ updatedDate: 2026-04-29
 author: Redactie ThuisbatterijWijzer
 draft: false
 featured: true
-affiliateLinks: [thuisbatterij-offerte]
+affiliateLinks: ["thuisbatterij-offerte", "energieopslag-vergelijk", "amazon-energie-monitor"]
 keywords:
   - solaredge home battery
   - solaredge batterij prijs
