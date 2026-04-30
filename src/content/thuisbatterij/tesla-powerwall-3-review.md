@@ -8,7 +8,7 @@ updatedDate: 2026-04-23
 author: Redactie ThuisbatterijWijzer
 draft: false
 featured: true
-affiliateLinks: [thuisbatterij-offerte]
+affiliateLinks: [thuisbatterij-offerte, amazon-victron-smartshunt]
 keywords:
   - tesla powerwall 3
   - tesla powerwall 3 prijs

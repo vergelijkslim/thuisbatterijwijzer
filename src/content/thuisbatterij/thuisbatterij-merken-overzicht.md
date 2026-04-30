@@ -8,7 +8,7 @@ updatedDate: 2026-04-29
 author: Redactie ThuisbatterijWijzer
 draft: false
 featured: true
-affiliateLinks: [thuisbatterij-offerte]
+affiliateLinks: [thuisbatterij-offerte, amazon-energie-monitor]
 keywords:
   - thuisbatterij merken
   - thuisbatterij merken vergelijken

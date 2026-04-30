@@ -8,7 +8,7 @@ updatedDate: 2026-04-23
 author: Redactie ThuisbatterijWijzer
 draft: false
 featured: true
-affiliateLinks: [thuisbatterij-offerte]
+affiliateLinks: [thuisbatterij-offerte, subsidie-check]
 keywords:
   - thuisbatterij subsidie
   - subsidie thuisbatterij 2026
